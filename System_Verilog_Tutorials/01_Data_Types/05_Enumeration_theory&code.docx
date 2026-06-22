@@ -1,0 +1,62 @@
+//Enumeration :- it's  use to provide set of  name value. 
+                // it's by default size =32 bit 
+                // we have option to  change name value.
+                //  it's uuse readable the code.
+
+module tab;
+  //method
+ // name = C; change the  deafult value of name
+ // enum { a,b,c,d=5,f}apha;
+  
+    // name[N] : Generates N named constants : name0, name1, ..., nameN-1
+  // it's create red0,red1,red2,red3,red4
+   enum { red[5]}color;
+  
+  // name[N] = C : First named constant gets value C and subsequent ones
+  // are associated to consecutive values
+  //default count start with 5 like block0=5,black1=6, black2=7
+  
+   enum {black[3] = 5} color1;
+  
+  // name[N:M] : First named constant will be nameN and last named
+  // constant nameM, where N and M are integers
+  // blue3 = 0, blue4 = 1, blue5 = 2
+  
+   enum {blue[3:5]} color2;
+  
+  //name[N:M] = C
+  // green3=5, green4=6, green5=7
+  
+   enum {green[3:5]=5} color3;
+
+
+
+
+  initial begin
+
+   // $display("[print initial value] a=%s", apha.name);
+    
+    $display("[color] a=%s", color);
+  color1= black2; $display("[color1] a=%s", color1.name);
+
+    $display("[color2] a=%s", color2);
+    color3=green4; $display("[color3] a=%s", color3.name);
+
+
+  end
+  
+  //Enumerated-Type Methods
+//first,next,last,prev,num,name
+  enum { a,b,c,d,e,f,g,h} aph;
+  
+  initial begin
+    $display(aph.name);
+    $display("apha_first=%0d", aph.first);
+    $display("apha_last=%0d", aph.last);
+    $display("apha_prev=%0d", aph.prev);
+    $display("apha_num=%0d", aph.num);
+    $display("apha_next=%0d", aph.next);
+
+  end
+  
+endmodule
