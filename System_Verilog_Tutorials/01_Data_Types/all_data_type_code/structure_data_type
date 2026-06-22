@@ -1,0 +1,23 @@
+///Structures :- it's use to store  different data type in one box/ one place.
+//use:- strcut key  to create Structures.
+// Each member has its own memory and can be accessed individually using the dot (.) operator
+
+
+
+module tab;
+  
+  typedef  struct { int a; real b; string name; } dif;
+ 
+  dif diff;
+  
+  initial begin
+    diff.a=6;
+    diff.b=8.9;
+    diff.name="kunal";
+    
+    $display(" a=%0d b=%0f name=%s ", diff.a,diff.b, diff.name);
+    $display(" call all =%0p", diff);
+    
+  
+  end
+endmodule 
