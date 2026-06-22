@@ -1,0 +1,18 @@
+//void means the function does not return any value.
+//It means no return value at all.
+//Tasks do not have a return type, so you do not write void task.
+module tab;
+  function void display();
+    $display(" void method not return any think");
+  endfunction
+  
+//   task void disp();
+//     $display(" inside task void method not work");
+//   endtask 
+  
+  initial begin // try to call both method
+    display();
+ //   disp();
+  end
+    
+    endmodule 
