@@ -1,4 +1,4 @@
-//Strings
+//Strings:- this data type store (characters/alphabet/names) name  and each  character contain 8 bit for store
 
 module tab;
   reg [8*5:0] name="kunal_mishra";  // 8*5 = 40 only 5 character are store and rest of are ignore   
@@ -6,3 +6,12 @@ module tab;
   initial $display("=name=%s", name);
   
 endmodule 
+
+
+K → 8 bits
+u → 8 bits
+n → 8 bits
+a → 8 bits
+l → 8 bits
+
+Total = 5 × 8 = 40 bits (plus simulator-managed string overhead).
