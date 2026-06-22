@@ -1,8 +1,9 @@
-//Enumeration :- it's  use to provide set of  name value. 
-                // it's by default size =32 bit 
+//Enumeration :- // - Used to define a set of named values (named constants). 
+                // it's by default size =32 bit(int data_type) 
                 // we have option to  change name value.
-                //  it's uuse readable the code.
-
+                // - We can change both the numeric values and the base data type.
+               // - Makes code more readable and easier to maintain.
+                // - Provides type checking, helping catch invalid assignments.
 module tab;
   //method
  // name = C; change the  deafult value of name
