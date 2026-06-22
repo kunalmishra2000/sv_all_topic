@@ -1,0 +1,13 @@
+//Fixed Arrays:- it's decalre size of array before compile/run time
+// it's call static array.
+//size  cannot be changed during simulation.
+
+module tab;
+  int a[10];
+  
+  initial begin
+    foreach(a[i])begin
+      $display("a=%0p", a[i]);
+    end
+end
+    endmodule 
