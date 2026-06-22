@@ -1,0 +1,22 @@
+//real to int Conversion :- it's call static casting.
+
+//  convert one data type  to other data type.
+
+//Static casting is written in the code before simulation, but the actual conversion happens during simulation (run time) when the statement executes.
+
+//rounding the real number to the nearest integer 
+
+
+module tab;
+  int a;
+  real b=6.7;
+  int c;
+  
+  
+  
+  initial begin
+       a=b;
+    c = int '(b);
+    $display("a=%0d b=%0f c=%0d", a,b,c);
+  end
+endmodule 
