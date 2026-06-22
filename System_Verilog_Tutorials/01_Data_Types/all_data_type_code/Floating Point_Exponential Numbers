@@ -1,0 +1,8 @@
+//Floating Point (or Real/Exponential) numbers are used to represent numbers that have a fractional (decimal) part.
+
+module tab;
+   real a= 2.6;
+  
+  initial $display("a=%0.0f", a);
+  
+endmodule 
