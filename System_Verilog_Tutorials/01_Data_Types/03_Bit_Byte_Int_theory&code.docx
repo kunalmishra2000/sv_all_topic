@@ -1,0 +1,17 @@
+// assign data on bit =logic
+//bit consider as a x,z as a bit
+
+module tab;
+  
+  bit [3:0]a;
+  logic [3:0] b;
+  
+  
+  initial begin
+    b= 4'b10zx;
+    
+    
+    a=b;
+    $display("a=%b b=%b", a,b);
+  end
+endmodule 
