@@ -1,0 +1,26 @@
+//write logic for display all data type default value 
+
+module tab;
+   int a;
+   integer b;
+   real c;
+  time d;
+   string name;
+  wire e;
+  reg f;
+  byte g;
+  longint h;
+  shortint i;
+  bit j;
+  logic k;
+  
+  
+  function void display();
+    $display("[print default value] int=%0d integer=%0d real=%0d  time=%0d string =%0d wire=%0d byte=%0d logint=%0d shortint=%0d, bit=%0d, logic=%0d", a,b,c,d,name,e,f,g,h,i,j,k);
+    
+  endfunction 
+  
+  initial begin
+    display();
+  end
+endmodule 
