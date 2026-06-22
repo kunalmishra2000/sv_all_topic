@@ -4,6 +4,8 @@
                 // - We can change both the numeric values and the base data type.
                // - Makes code more readable and easier to maintain.
                 // - Provides type checking, helping catch invalid assignments.
+
+//enumeration (enum) is a user-defined data type
 module tab;
   //method
  // name = C; change the  deafult value of name
