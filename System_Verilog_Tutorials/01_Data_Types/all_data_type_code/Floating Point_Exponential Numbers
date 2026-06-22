@@ -3,6 +3,6 @@
 module tab;
    real a= 2.6;
   
-  initial $display("a=%0.0f", a);
+  initial $display("a=%0f", a);
   
 endmodule 
