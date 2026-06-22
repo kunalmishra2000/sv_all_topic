@@ -1,1 +1,20 @@
-
+//type cheking mena's we check that value name and name of value are exist inside enum or not
+module tab;
+  enum { a,b,c,d}apha;
+  
+  initial begin
+    apha=d;
+    $display(apha.name); //print the name 
+    $display(apha); // print the value for d
+    
+    apha=0;
+    $display(" name of index 0", apha.name);  
+    $display("value of index 0=%0d ",apha); 
+    
+    if(apha == c | apha ==2)begin
+      $display(" name=%s ", apha.name);  
+      $display("name of value=%0d  ",apha); 
+    end
+  end
+endmodule
+    
