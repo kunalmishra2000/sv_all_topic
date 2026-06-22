@@ -1,0 +1,46 @@
+//logic data type :- it's use in both combinational and sequential ckt.
+// it's ue for Procedural and Continuous assignment. it's use for both assign and always block.
+
+//logic variable should have only one driver.
+
+
+
+module tab;
+  
+logic a=1;
+  logic b;
+  
+  initial begin
+    $display(a);
+    a=0; // inside produral assignment
+    $display(a);
+  end
+  
+  assign b=a;  // inside continous assignment
+  
+  initial $display(b);
+
+  
+  // multi drive :- it's through error
+  
+  int f; 
+  
+  assign f=1;
+  assign f=0;
+  assign f=1;
+  assign f=1;  //it's called multiple driver
+  initial $display(f);
+  
+    
+endmodule 
+
+
+/* error
+testbench.sv, 26
+  Illegal combination of structural drivers.
+  Variable "f" is driven by multiple structural drivers.
+  This variable is declared at
+  "testbench.sv", 26: int f;
+  The first driver is at "testbench.sv", 31: assign f = 1;
+  The second driver is at "testbench.sv", 28: assign f = 1;
+*/
