@@ -1,0 +1,8 @@
+//Strings
+
+module tab;
+  reg [8*5:0] name="kunal_mishra";  // 8*5 = 40 only 5 character are store and rest of are ignore   
+  
+  initial $display("=name=%s", name);
+  
+endmodule 
