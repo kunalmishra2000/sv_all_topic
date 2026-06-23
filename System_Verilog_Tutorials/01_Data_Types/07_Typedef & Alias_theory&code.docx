@@ -21,8 +21,37 @@ module tab;
        $display("a=%0d b=%0d c=%0d",a,b,c);
      end
 endmodule 
+------------------------------------------------------------------------------ALIaS------------------------------------------------------------------------------------------------------
 
+Alias means an alternative name for an existing entity. In typedef, an alias is a new name given to an existing data type.
+alias creates an alternate name for an existing signal/net.
+------------------------------------------------------------------------------------------------------------------------------------------------
+What does alias do?
+alias makes two signals/nets refer to the same physical object.
+They are effectively the same signal with two names.
+------------------------------------------------------------------------------------------------------
+Why can't logic be used?
 
+logic stores values like a variable:
+---------------------------------------------------------------------------------------------------------------------------
+
+The alias statement requires net types (wire, tri, etc.). It cannot be used with variables such as logic, reg, int, or integer.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+shortint  <-- original type
+    ↑
+    |
+ my_type  <-- alias (another name)
+-----------------------------------------------------------------------------------code------------------------------------------------------------------------------------------------------------------------
+
+module tb;
+
+  wire [7:0] a;
+  wire [7:0] num=7;
+
+  alias a = num;
+  initial $display("a=%0d num=%0d",a,num);
+
+endmodule
 
 
 
