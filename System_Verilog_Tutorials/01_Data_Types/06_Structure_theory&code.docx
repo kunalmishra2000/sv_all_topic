@@ -28,7 +28,7 @@ endmodule
 
 
 ---------------------------------------------------------------------------//packed struct-----------------------------------------------------------------------
-
+//A packed structure is a mechanism for subdividing a vector into fields that can be accessed as members and are packed together in memory without gaps.
 module tab;
   
   //it's packed
