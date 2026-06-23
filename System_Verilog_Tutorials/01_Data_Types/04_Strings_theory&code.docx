@@ -1,0 +1,85 @@
+//string :- it's  use to store character. 
+//String is a dynamic data type used to store characters and text
+//Take 8 bit to store each character.
+//it's multiple inbuild method, $size, Equality,Inequality,Comparison,Concatenation,Replication,Indexing,Methods,
+//String Conversion Methods:- 
+
+module tab;
+  
+  string name="kunal";
+  string name2="kunal";
+  string name3="lu";
+  
+  initial begin
+    $display(name);
+    if(name == name2) // it's compare character by character
+      $display("Equality :- it's check/compare  character are same in both size");
+    else
+      $display("NOT_Equality :- it's check/compare  character are in both size");
+
+    if(name != name2) // it's compare character by character
+      $display("Inequality :- it's check/compare  character are same in both size");
+    else
+      $display("NOT_Inequality :- it's check/compare  character are in both size");
+    
+    //Comparison <,>,<=,>= it's check  charaster value  order like l come after k so l is big and k is small and it's only compare 1 letter and rest are ignore
+    if(name < name3)
+      $display(" name3 is greater then name1");
+    else
+      $display(" NOT name3 is greater then name1");
+
+    
+     //Concatenation
+    
+    $display("print all in one line=%s",{name," ", name2," ", name3});
+
+        //Replication
+
+    $display("kunal print 3 time = %s", {3{" ",name}});
+    
+    
+    //Indexing
+    $display("name_print_index_2=%s", name[2]);
+    
+    //Methods
+            
+  end
+  
+      //-------------------------------------------Basic String Methods-------------------------------
+  //str.len(),str.putc(),str.getc(),str.tolower(),str.compare(s),str.icompare(s),str.substr (i, j).
+ 
+  string a="SAKSHI";
+  string b="kunal";
+
+  initial begin
+    $display("len of string [how many letter are there] =%0d", a.len()); 
+    $display(" convert all letter in small aph =%s", a.tolower());
+    //replace method
+    a.putc(3, "k");
+    $display("it's use to replace single letter at a time   =%s", a);
+    
+    // Get the character at index 2 :-it's mean read single letter at a time
+    $display(" read single letter at a time=%s", a.getc(2));
+    
+          // Comparison:- compare to  string 
+    
+    $display(" compare two string =%0d", a.compare(b));
+    
+    //      // Extract new string from i to j
+    $display("print  string between range=%s", a.substr(1,3));
+
+       
+    
+    
+    
+    
+    
+    
+  end
+    
+    
+    
+    
+    
+    
+endmodule 
