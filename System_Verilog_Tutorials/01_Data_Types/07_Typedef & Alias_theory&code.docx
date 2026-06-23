@@ -1,0 +1,28 @@
+//Typedef:- typedef is used to create a new type name (alias) for an existing data type.
+                 //The new type created by typedef is a user-defined type.
+         // it's called as a user defined data type
+// for example, If we have a data type definition that we want to reuse multiple times, we use typedef
+//  other example:-if one class contains a handle of another class that is not yet defined, we use typedef . This is called a forward declaration.
+
+  
+
+module tab;
+  typedef shortint a;
+ 
+        a b;
+       a  c;
+  
+     initial begin
+       
+     
+//        a=6;  // it has not use
+        b=8;
+        c=9;
+       $display("a=%0d b=%0d c=%0d",a,b,c);
+     end
+endmodule 
+
+
+
+
+
