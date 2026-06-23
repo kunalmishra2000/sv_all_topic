@@ -1,0 +1,46 @@
+// Const :- it's use to fixed the value , we can't override value  initial value what we assign.
+// use :- const key  , use in both method and property
+// const methdo use
+//it's use to fixed the value 
+// value can not change if it's assign
+// const key
+//read only mode
+//its value cannot be changed anywhere else after this initial declaration.
+
+module tab;
+  
+  // it's called GLOBAL constant
+  // because,  during declare, we assign  value  that why it's call global constant
+  
+  const int a=8;
+  
+  initial begin
+    $display("a=%0d", a);
+  a=9; // through error
+    $display("after override value=%0d", a);
+  
+  end
+endmodule 
+
+-----------------------------------------------------------------------------INSRANCE_CONSTANT-------------------------------------------------------------------------------------
+
+// instance const:- during declare we not assign value is call instance constant.
+
+
+class packet;
+   const int a;
+  
+  function new();
+    a=9;  // assign value 
+  endfunction 
+  
+ 
+endclass
+
+module tab;
+  packet pac=new();
+ 
+  initial begin
+    $display("a=%0d",pac.a);
+  end
+endmodule 
