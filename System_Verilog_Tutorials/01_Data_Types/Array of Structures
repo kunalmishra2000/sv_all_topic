@@ -1,0 +1,49 @@
+
+//Array of Structures
+//create struct as static , dynamic, associative array
+
+module tab;
+  
+ typedef struct  {  int a; bit c;} st;
+  //why we use typedef here,
+  //Because, we  use stuct multiple time.
+  
+  // as a static
+  st st_static[5];
+  
+  // as a dynamic
+  st st_dynamic[];
+  
+  //as a associative
+  st st_associative[int];
+  
+  
+  initial begin
+    st_dynamic=new[5];
+    
+    //print all
+    //1.static
+    foreach(st_static[i])begin
+      st_static[i].a =i;
+      $display("st_static=%0p", st_static[i]);
+      //$display(st_static);
+    end
+    
+    //2. dynamic
+    foreach(st_dynamic[i])begin
+      st_dynamic[i].a =i;
+      $display("st_dynamic=%0p", st_dynamic[i]);
+         //   $display(st_dynamic);
+    end
+    
+        //2. associative
+    foreach(st_associative[i])begin
+      st_associative[12].a=99;
+      $display("st_associative=%0p", st_associative[i]);
+          //  $display(st_associative);
+    end
+    
+    
+  end
+  
+endmodule 
