@@ -1,0 +1,44 @@
+//SystemVerilog Structure:- it's user defined data type.   
+//  it's use contain multiple diff data type  in one container.
+//A structure can contain elements of different data types
+//It can contain int, bit, logic, string, arrays, other structs, etc.
+// struct have packed and unpacked
+//each struct have won memory 
+//You can access individual members one at a time using the dot (.) operator.
+//structure is unpacked by default
+
+
+module tab;
+  
+  //it's unpacked
+  struct {  int a; string n; real b; bit c;} st;
+  
+  initial begin
+    $display(st); // display all ddefault value
+    st.a=6;
+    st.n="kuna;]l";
+    st.b=8.9;
+    st.c=1;
+    $display(st);
+    //find length
+    $display(st.len());
+  end
+  
+endmodule 
+
+
+---------------------------------------------------------------------------//packed struct-----------------------------------------------------------------------
+
+module tab;
+  
+  //it's packed
+  struct packed { int a; bit c;} st;
+  
+  initial begin
+    $display("st=%0p", st); // display all ddefault value
+    st.a=6;
+    st.c=1;
+    $display("st=%0p", st);
+  end
+  
+endmodule 
