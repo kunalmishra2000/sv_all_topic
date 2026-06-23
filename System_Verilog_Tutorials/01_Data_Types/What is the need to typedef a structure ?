@@ -1,0 +1,18 @@
+question:- What is the need to typedef a structure ?
+
+//What is the need to typedef a structure ?
+//typedef gives a name to a structure data type so that it can be reused easily.
+
+module tab;
+  
+  typedef struct {int a; real b;} ka;
+  
+  initial begin
+    ka k1={8,9.9};
+    ka k2;
+    $display("k1=%0p", k1);
+    k2={ 7, 7.7};
+     $display("k2=%0p", k2);
+    
+  end
+endmodule 
