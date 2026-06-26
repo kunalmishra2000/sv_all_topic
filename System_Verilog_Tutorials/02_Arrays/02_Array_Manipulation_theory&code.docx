@@ -1,0 +1,66 @@
+//-------------------------------------------------------------------needs to update-----------------------------------------------------------------------------------//
+
+// array manipulation:- it's use for seaching and ordering.
+// what is do? :- it's play and manipulate with array.
+//always take array in queue.
+// use with clause with manipulate ya play with array.
+// array manipulation have many  in build method :- sort,rsort, reverse,shuffle, unique, unique_index, find,find_first, find_last, find_prev, find_first_index, find_last_index, min, max, sum,product,and,or,xor
+//what actual do with clause? 
+
+//code:- 
+module tab;
+  int a[$]={22,6,7,9,012,33,22,68,90,33,98,0,2,87};
+  
+  initial begin
+    $display("display whole element =%0p",a);
+    
+    // use array manipulation in build method 
+    a.sort(); //accending order display
+    $display("sort(it's display in acending order)=%0p", a);
+    
+    a.rsort(); // de_accending order display
+    $display("rsort(it's display in decending order)=%0p", a);
+    
+    
+     a.reverse(); // reverse number
+    $display("reverse(it's display in reverse all number)=%0p", a);
+    
+ 
+    $display("max(it's display the largest number in array)=%0p",  a.max());
+    
+    
+    $display("min(it's display the smallest number in array)=%0p",  a.min());
+    
+     
+    $display("unique(it's display to hide unique(repeated_num) number)=%0p",  a.unique());
+    
+     
+    $display("unique_index(it's display to hide  unique index)=%0p",  a.unique_index());
+    
+    a.shuffle();
+    $display("SHuffle,(it's rerandmize/re_arrange the number)=%0p", a); 
+    
+  end
+  
+  int find_element_less_then_3;
+  initial begin
+    //Array Locator Methods NOW, we  needs to use with clause
+    
+    find_element_less_then_3= a.find(item) with(item <3);
+    $display(" find  number less then 3=%0d",find_element_less_then_3); 
+  end
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+endmodule 
