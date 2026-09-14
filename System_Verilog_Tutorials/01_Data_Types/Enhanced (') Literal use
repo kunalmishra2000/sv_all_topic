@@ -1,0 +1,26 @@
+//Enhanced (') Literal
+
+module tab;
+  
+  parameter width=8;
+  
+  reg [width-1:0] vars;
+  
+  initial begin
+    
+    vars= 'hx; //  all 8 x is print's 
+    $display("var=%b",vars);
+
+    vars= 'hz; // all 8 z is print's
+    $display("var=%b",vars);
+
+    
+    vars= 'h0; // all 0 print's
+    $display("var=%b",vars);
+
+    vars= 'h1; // only one 1 is print from lhs size rest print's zero like 00000001 
+    
+    $display("var=%b",vars);
+    
+  end
+endmodule
