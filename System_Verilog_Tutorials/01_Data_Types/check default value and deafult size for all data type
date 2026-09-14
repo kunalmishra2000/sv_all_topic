@@ -1,0 +1,34 @@
+module tab;
+  logic lo;
+  bit bi;
+  reg re;
+  wire wi;
+  byte by;
+  
+  int in;
+  integer inte;
+  
+  string str;
+  
+  real rea;
+  
+  time ti;
+  realtime reti;
+  
+  initial begin
+    $display(" logic data type deafult_value=%0d deafult_size=%0d", lo,$bits(lo)); 
+    $display(" bit data type deafult_value=%0d deafult_size=%0d", bi,$bits(bi));
+    $display(" reg data type deafult_value=%0d deafult_size=%0d", re,$bits(re));
+    $display(" wire data type deafult_value=%0d deafult_size=%0d", wi,$bits(wi));
+    $display(" byte data type deafult_value=%0d deafult_size=%0d", by,$bits(by));
+    $display(" int data type deafult_value=%0d deafult_size=%0d", in,$bits(in));
+    $display(" inte data type deafult_value=%0d deafult_size=%0d", inte,$bits(inte));
+    $display(" str data type deafult_value=%0d deafult_size=%0d", str,$bits(str));
+    $display(" real data type deafult_value=%0d deafult_size=%0d", rea,$bits(rea));
+    $display(" time data type deafult_value=%0d deafult_size=%0d", ti,$bits(ti));
+    $display(" realtime data type deafult_value=%0d deafult_size=%0d", reti,$bits(reti));
+  end
+  
+endmodule
+
+  
