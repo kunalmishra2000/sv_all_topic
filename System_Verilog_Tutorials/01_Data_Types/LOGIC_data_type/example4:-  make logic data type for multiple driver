@@ -1,0 +1,7 @@
+
+module tb;
+  logic data;
+
+  assign data = 1'b1;     // Driver #1
+  assign data = 1'b0;     // Driver #2 -- also illegal: a variable can't have two continuous drivers either
+endmodule
