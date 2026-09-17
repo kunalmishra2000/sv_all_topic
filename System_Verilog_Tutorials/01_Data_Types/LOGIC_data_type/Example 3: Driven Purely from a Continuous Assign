@@ -1,0 +1,51 @@
+// // Example 3: Driven Purely from a Continuous Assign
+
+module tab;
+  
+  logic a,b;
+  logic out_or, out_and, out_xor;
+  
+  assign out_or = a+b;
+  
+  assign out_and = a&b;
+  
+  assign out_xor = a^b;
+  
+initial begin
+  
+  //testcase
+  a=1; b=1; #1;
+  $display(" a= %b b=%b out_or=%b out_and=%b out_xor=%b", a,b,out_or, out_and, out_xor);
+  
+   a=0; b=0; #1;
+  $display(" a= %b b=%b out_or=%b out_and=%b out_xor=%b", a,b,out_or, out_and, out_xor);
+  
+   a=1; b=0; #1;
+  $display(" a= %b b=%b out_or=%b out_and=%b out_xor=%b", a,b,out_or, out_and, out_xor);
+  
+   a=0; b=1; #1;
+  $display(" a= %b b=%b out_or=%b out_and=%b out_xor=%b", a,b,out_or, out_and, out_xor);
+  
+end
+  
+endmodule
+  
+//Mistake #1: Assuming a logic variable can have multiple drivers
+
+module tab;
+  
+  logic a;
+  
+  //continous 
+  assign a=1; //driver=1 
+  
+  
+  // it's through error; because,   we  take one variable for multiple drive
+  
+  //procedural
+  initial a=1;   // Driver #2 (procedural) -- illegal: can't mix continuous and procedural drivers on a variable
+
+  
+  
+endmodule
+  
