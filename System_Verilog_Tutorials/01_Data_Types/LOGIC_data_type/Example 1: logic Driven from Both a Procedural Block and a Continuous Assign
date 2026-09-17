@@ -1,0 +1,18 @@
+// // Example 1: logic Driven from Both a Procedural Block and a Continuous Assign
+
+module tab;
+  logic [3:0] pro;
+  logic  conti;
+  
+  initial begin
+    $display("procedural=%0d  continuous=%0d", pro, conti);
+    pro=4'ha;
+        $display("procedural=%0d  continuous=%0d", pro, conti);
+#1;
+        $display("procedural=%0d  continuous=%0d", pro, conti);
+  end
+  
+  assign conti= pro[3];
+  // assign conti= pro[2]; // logic data type can't drive multi 
+
+endmodule
