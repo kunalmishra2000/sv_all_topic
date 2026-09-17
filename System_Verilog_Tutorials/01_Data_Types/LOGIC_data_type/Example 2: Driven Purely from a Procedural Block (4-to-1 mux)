@@ -1,0 +1,37 @@
+// // Example 2: Driven Purely from a Procedural Block (4-to-1 mux)
+
+// // make multiplex 4:1
+module tab;
+  logic [7:0] a,b,c,d;
+  logic [1:0] select_signal;
+  logic [7:0] out;
+  
+  always_comb begin
+    case(select_signal)
+      2'b00 : out = a;
+      2'b01 : out = b;
+      2'b10 : out = c;
+      2'b11 : out = d;
+    endcase
+  end
+  
+  initial begin
+TESTCASE
+    a= 8'hac; b=8'hcd; c=8'h11; d=8'h87;
+
+    select_signal=2'b00;     #1;
+    $display("select=%b out=%0h", select_signal, out);
+
+    select_signal=2'b01; #1;
+    $display("select=%b out=%0h", select_signal, out);
+    
+      select_signal=2'b10; #1;
+    $display("select=%b out=%0h", select_signal, out);
+    
+      select_signal=2'b11; #1;  // why  we take delay  and why without delay it's give x output
+    $display("select=%b out=%0h", select_signal, out);
+    
+  end
+    
+  
+endmodule 
