@@ -8,3 +8,29 @@ module tb;
   initial $display("data=%0d",data);  // take default value 
 endmodule
 
+-----------------------------------------------------------//EXPLAIN//---------------------------------------------------------
+Multiple drivers with the same value → that value.
+Multiple drivers with conflicting values → X.
+
+For example:
+
+assign data = 1'b1;
+assign data = 1'b1;
+
+→ data = 1
+
+while:
+
+assign data = 1'b0;
+assign data = 1'b0;
+
+→ data = 0
+
+but:
+
+assign data = 1'b1;
+assign data = 1'b0;
+
+→ data = X.
+
+
