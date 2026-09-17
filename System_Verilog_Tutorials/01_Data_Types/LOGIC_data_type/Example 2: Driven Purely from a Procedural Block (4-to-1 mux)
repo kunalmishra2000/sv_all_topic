@@ -40,8 +40,9 @@ TESTCASE
 endmodule 
 //issue:-
 
-//When select_signal changes, always_comb is triggered/scheduled for execution. Since it is a separate concurrent process, 
-//the initial block may execute $display before always_comb gets its turn.
+//“initial and always_comb are concurrent processes. When select_signal changes,
+//always_comb is triggered. Both are scheduled in the Active region, and the simulator does not guarantee their execution order. 
+//Therefore, $display may execute before always_comb updates out, so it can print X.”
               ACTIVE REGION
                     |
           ┌─────────┴─────────┐
