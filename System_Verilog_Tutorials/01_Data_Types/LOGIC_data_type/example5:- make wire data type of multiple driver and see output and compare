@@ -1,0 +1,10 @@
+
+//wire drive multiple 
+module tb;
+  wire  data;        // now a net of type logic, not a variable
+
+  assign data = 1'b1;     // Driver #1
+  assign data = 1'b0;     // Driver #2 
+  initial $display("data=%0d",data);  // take default value 
+endmodule
+
