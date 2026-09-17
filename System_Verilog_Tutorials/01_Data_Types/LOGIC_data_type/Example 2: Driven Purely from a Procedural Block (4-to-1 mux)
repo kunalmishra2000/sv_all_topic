@@ -18,7 +18,10 @@ module tab;
   initial begin
 TESTCASE
     a= 8'hac; b=8'hcd; c=8'h11; d=8'h87;
+// question:- Why can $display still see X?
 
+//Because the testbench initial block and always_comb are both processes scheduled in the Active region. 
+//The simulator does not guarantee which active process executes first.
     select_signal=2'b00;     #1;
     $display("select=%b out=%0h", select_signal, out);
 
