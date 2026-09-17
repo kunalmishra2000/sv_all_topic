@@ -1,0 +1,16 @@
+
+
+// 
+module tba;
+   byte  a;
+   byte unsigned b;
+  
+  initial begin
+    $display(" byte_signed_data_type=%0d byte_unsigned_data_type=%0d", $bits(a),$bits(b));
+  end
+endmodule
+
+
+
+
+
