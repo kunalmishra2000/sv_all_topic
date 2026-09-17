@@ -1,0 +1,12 @@
+// // When a 4-state value is converted to a 2-state value, any X or Z bits are converted to 0.
+
+// module tab;
+//   logic [3:0] a= 4'b01zx;
+//   bit [3:0] b;
+  
+  
+//   initial begin
+//     b=a;
+//     $display("a=%b b=%b", a,b);
+//   end
+// endmodule
