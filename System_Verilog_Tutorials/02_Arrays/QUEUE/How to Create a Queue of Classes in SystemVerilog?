@@ -1,0 +1,25 @@
+// // How to Create a Queue of Classes in SystemVerilog?
+
+// class packet;
+//   int a;
+  
+//   function void post();
+//     $display("a=%0d",a);
+//   endfunction
+  
+// endclass
+
+// module tab;
+//   packet pac[$];
+//         packet p;
+
+//   initial begin
+    
+//     for(int i=0; i<5; i++)begin
+//        p = new();
+//       p.a=i;
+//       pac.push_back(p);
+//       pac[i].post();
+//     end
+//   end
+// endmodule
