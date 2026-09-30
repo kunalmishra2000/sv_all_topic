@@ -1,0 +1,35 @@
+
+//How to Create a Queue of Dynamic Arrays in SystemVerilog and class make as a dynamic array of size 5?
+//we have dynamic array convert this array into queue
+ 
+typedef int dynamic[];
+class packet;
+  //covert into queue behaviours
+  dynamic dyn_que[$];
+  int dyy[4];
+  
+  function new();
+  //  dyy =new[5];
+    dyy='{8,6,11,99};
+    
+    dyn_que.push_front(dyy);
+  endfunction
+  
+  function void post();
+    $display("a=%0p",dyn_que);
+  endfunction
+  
+endclass
+
+module tab;
+  packet pac[];
+
+  initial begin
+    pac=new[5];
+    for(int i=0; i<5; i++)begin
+      pac[i] = new();
+      //pac[i].=i;
+      pac[i].post();
+    end
+  end
+endmodule
