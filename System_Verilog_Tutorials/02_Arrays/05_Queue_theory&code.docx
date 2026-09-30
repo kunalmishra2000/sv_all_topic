@@ -1,0 +1,128 @@
+// //queue
+
+// module tab;
+//   int que[$]; // unbounded queue
+//   int qu[$:127]; // bounded queue
+  
+//   initial begin
+//     //store data on queue  how many way to store data
+//     que='{ 12,11,55};
+//           qu='{1,6,7,8};
+          
+    
+//     // using push method  push and front
+//     que.push_back(99); // at a time only one element push
+//     que.push_front(88);
+    
+//     qu.push_back(99); // at a time only one element push
+//     qu.push_front(88);
+//     $display("[PUSHING_METHOD] que_bounded=%0p que_unbounded=%0p", qu, que);
+    
+//     // pop method
+//     que.pop_front();
+//     que.pop_back();
+//     qu.pop_front();
+//     qu.pop_back();
+//     $display("[POP_METHOD] que_bounded=%0p que_unbounded=%0p", qu, que);
+    
+//     que.insert(2,120);
+//     qu.insert(3,111);
+//     $display("[insert_METHOD] que_bounded=%0p que_unbounded=%0p", qu, que);
+    
+// //     que.delete(2);
+// //     $display("[delete_one_index_METHOD] [2nd index] que_bounded=%0p que_unbounded=%0p",
+// //              qu, que);
+    
+//     qu.delete();
+//    // que={};
+//     $display("[delete_all_index_METHOD] que_bounded=%0p que_unbounded=%0p", qu, que);
+
+//    //// Delete first item
+//     que=que[1:$];
+//     $display("[without_methdo_delete_first_index_METHOD] que_bounded=%0p que_unbounded=%0p", qu, que);
+
+//     // Delete last item
+    
+//     que=que[0:$-1];
+//     $display("[without_methdo_delete_last_index_METHOD] que_bounded=%0p que_unbounded=%0p", qu, que);
+
+//         // Delete last item
+    
+//     que=que[1:$-1];
+//     $display("[without_methdo_delete_last_first_index_METHOD] que_bounded=%0p que_unbounded=%0p", qu, que);
+    
+//     //increase size
+//     que[$+1]=6;
+//     $display("[increase size] que=%0p", que);
+
+//   end
+  
+// endmodule
+
+
+// // How to Create a Queue of Classes in SystemVerilog?
+
+// class packet;
+//   int a;
+  
+//   function void post();
+//     $display("a=%0d",a);
+//   endfunction
+  
+// endclass
+
+// module tab;
+//   packet pac[$];
+//         packet p;
+
+//   initial begin
+    
+//     for(int i=0; i<5; i++)begin
+//        p = new();
+//       p.a=i;
+//       pac.push_back(p);
+//       pac[i].post();
+//     end
+//   end
+// endmodule
+    
+
+
+//How to Create a Queue of Dynamic Arrays in SystemVerilog and class make as a dynamic array of size 5?
+//we have dynamic array convert this array into queue
+ 
+typedef int dynamic[];
+class packet;
+  //covert into queue behaviours
+  dynamic dyn_que[$];
+  int dyy[4];
+  
+  function new();
+  //  dyy =new[5];
+    dyy='{8,6,11,99};
+    
+    dyn_que.push_front(dyy);
+  endfunction
+  
+  function void post();
+    $display("a=%0p",dyn_que);
+  endfunction
+  
+endclass
+
+module tab;
+  packet pac[];
+
+  initial begin
+    pac=new[5];
+    for(int i=0; i<5; i++)begin
+      pac[i] = new();
+      //pac[i].=i;
+      pac[i].post();
+    end
+  end
+endmodule
+    
+
+
+
