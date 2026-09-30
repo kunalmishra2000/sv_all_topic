@@ -1,1 +1,26 @@
 
+/*Declare an unbounded queue of int named expected_q. Push the values 10, 20, and 30 onto it using push_back(), then pop and print each value in order using pop_front() until the queue is empty.*/
+
+module tab;
+  int expected_q[$];
+  
+  initial begin
+    expected_q.push_back(10);
+    expected_q.push_back(20);
+    expected_q.push_back(30);
+    $display("a=%0p",expected_q);
+  
+    while(expected_q.size>0)begin
+      expected_q.pop_back();
+    $display(" remove all element=%0p",expected_q);
+  end
+    
+    //check que is empty or not 
+    if(expected_q.size==0)
+      $display(" queue is empty=%0d", $size(expected_q));
+    else
+      $display(" queue is NOT empty=%0d", $size(expected_q));
+    
+
+  end
+endmodule
