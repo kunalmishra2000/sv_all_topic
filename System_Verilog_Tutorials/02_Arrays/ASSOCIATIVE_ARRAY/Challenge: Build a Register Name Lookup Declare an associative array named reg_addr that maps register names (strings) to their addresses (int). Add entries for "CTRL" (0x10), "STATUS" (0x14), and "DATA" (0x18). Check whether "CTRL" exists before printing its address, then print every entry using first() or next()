@@ -1,0 +1,30 @@
+/* 
+Challenge: Build a Register Name Lookup
+Declare an associative array named reg_addr that maps register names (strings) to their addresses (int). Add entries for "CTRL" (0x10), "STATUS" (0x14), and "DATA" (0x18). Check whether "CTRL" exists before printing its address, then print every entry using first()/next()
+*/
+
+module tab;
+  int  reg_addr[string];
+  string key;
+  initial begin
+    reg_addr='{"CTRL" : 10, "STATUS" : 14, "DATA" : 18};
+    
+    $display("reg_addr=%0p",reg_addr);
+    
+    if(reg_addr.exists("CTRL"))
+      
+         $display("CTRL is at 0x%0h", reg_addr["CTRL"]);
+    begin
+      
+
+      if(reg_addr.first(key))
+    $display("[FIRST_ELEMENT] reg_addr[%s]=%0p",key,reg_addr[key]);
+
+      while(reg_addr.next(key)) //using while print all rest of index and value
+    $display("[NEXT_ELEMENT] reg_addr[%s]=%0p",key,reg_addr[key]);
+    
+    end
+
+    
+  end
+endmodule
