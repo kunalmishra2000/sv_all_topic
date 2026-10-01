@@ -1,0 +1,20 @@
+// Initialization Example associative array
+
+// module tab;
+//   int a[int];
+//   int b[string];
+//   string c[int];
+  
+//   initial begin
+//     //index:element
+//     a='{ 0 : 88, 1 : 99, 7 : 1098};
+//     b='{ "kunal" : 9898, "sakshi" : 7767, "shivam" : 888};
+//     c= '{0 : "kunal", 1 : "saskhsi", 2 : "shivam"};
+// //    // foreach(a[key])begin
+//       $display("a=%0p",  a);
+//       $display("b=%0p",b);
+//       $display("c=%0p",c);
+// //     //end
+//   end
+// endmodule 
+ 
