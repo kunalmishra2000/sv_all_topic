@@ -1,0 +1,56 @@
+   
+Associative Array Methods
+
+size,delete,exists,first, prev, next,last, num using INTEGER INDEX
+
+
+module tab;
+  int a[int];
+  int b[string];
+  
+  initial begin
+    
+        //index:element
+    int key;
+
+    
+    a='{ 0 : 88, 1 : 99, 7 : 1098};
+    b='{ "kunal" : 9898, "sakshi" : 7767, "shivam" : 888};
+    
+    a.first(key);
+    $display(" display first index value[%0d]=%0p",key, a[key]);
+    
+      a.next(key);
+    $display(" display next index value[%0d]=%0p",key, a[key]);
+    
+      a.next(key);
+    $display(" display again next index value[%0d]=%0p",key, a[key]);
+    
+      a.prev(key);
+    $display(" display prev index value[%0d]=%0p",key, a[key]);
+    
+      a.prev(key);
+    $display(" display  again prev index value[%0d]=%0p",key, a[key]);
+    
+      a.last(key);
+    $display(" display last index value[%0d]=%0p",key, a[key]);
+    
+    a.last(key);
+    $display(" display again last index value[%0d]=%0p",key, a[key]);
+
+  // other method :- num,size and delete , exists , delete single index
+    
+    $display(" total element using num=%0d", a.num());
+    $display(" total element using size=%0d", a.size());
+    
+    a.delete(1);
+    $display(" delete index 1 then display =%0p",a);
+    
+    if(a.exists(7))
+      $display(" check index 1 is availbe [%0d]=%0p", key, a[key]);
+    else
+      $display(" check index 1 is not availbe or not[%0d]=%0p", key, a[key]);
+
+  end
+endmodule 
+
