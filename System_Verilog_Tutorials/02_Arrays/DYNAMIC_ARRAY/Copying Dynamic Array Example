@@ -1,0 +1,27 @@
+
+
+//Copying Dynamic Array Example
+
+module tab;
+  int a[];
+  int b[]; //copy  one dynamic array to other dynamic array
+  
+  initial begin
+    a=new[6];
+    
+    a='{66,88,11,0,99,11};
+    
+    $display("a=%0p", a);
+    
+     b=a;
+    $display(" copy of one dynamic array a=%0p b=%0p", a,b);
+    
+    // Grow size by 1 and copy existing elements to the new dyn.Array "id"
+    b=new[b.size+1] (b);
+    $display("[increse size of  copy array] copy of one dynamic array a=%0p b=%0p", a,b);
+    
+    		// Assign value 6 to the newly added location [index 5]
+    b[b.size-1]=9 ;
+    $display("[assign value on new index] copy of one dynamic array a=%0p b=%0p", a,b); 
+  end
+endmodule 
