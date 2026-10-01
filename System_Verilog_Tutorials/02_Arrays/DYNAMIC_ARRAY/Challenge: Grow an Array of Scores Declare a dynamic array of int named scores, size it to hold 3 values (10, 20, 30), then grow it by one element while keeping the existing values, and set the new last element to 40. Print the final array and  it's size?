@@ -1,0 +1,61 @@
+
+
+/*Challenge: Grow an Array of Scores
+Declare a dynamic array of int named scores, size it to hold 3 values (10, 20, 30), then grow it by one element while keeping the existing values, and set the new last element to 40. Print the final array and its size.*/
+
+module tab;
+  int score[];
+  
+  initial begin
+    score=new[3];
+    
+    score='{10,20,30};
+    $display("score=%0p", score);
+    
+    //grow  for one element
+    
+    score=new[score.size+1](score);
+    $display($size(score));
+    
+    //set the new last element to 40
+    
+    score[$size(score)-1]=40;
+    $display("[add new value in array] score=%0p", score);
+  end
+endmodule
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
