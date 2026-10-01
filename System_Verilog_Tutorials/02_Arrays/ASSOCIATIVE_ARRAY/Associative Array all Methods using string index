@@ -1,0 +1,71 @@
+
+//Associative Array Methods
+
+// size,delete,exists,first, prev, next,last, num using [STRING INDEX]
+
+module tab;
+  int a[string];
+  
+  initial begin
+    
+   //index:element
+    
+    string key;
+
+    
+    a='{ "kunal" : 9898, "sakshi" : 7767, "shivam" : 888};
+    
+    a.first(key);
+    $display(" display first index value[%0d]=%0p",key, a[key]);
+    
+      a.next(key);
+    $display(" display next index value[%0d]=%0p",key, a[key]);
+    
+      a.next(key);
+    $display(" display again next index value[%0d]=%0p",key, a[key]);
+    
+      a.prev(key);
+    $display(" display prev index value[%0d]=%0p",key, a[key]);
+    
+      a.prev(key);
+    $display(" display  again prev index value[%0d]=%0p",key, a[key]);
+    
+      a.last(key);
+    $display(" display last index value[%0d]=%0p",key, a[key]);
+    
+    a.last(key);
+    $display(" display again last index value[%0d]=%0p",key, a[key]);
+
+  // other method :- num,size and delete , exists , delete single index
+    
+    $display(" total element using num=%0d", a.num());
+    $display(" total element using size=%0d", a.size());
+    
+    a.delete("sakshi");
+    $display(" delete index 1 then display =%0p",a);
+    
+    if(a.exists("kunal"))
+      $display(" check index kunal is availbe=%0p", a["kunal"]);
+    else
+      $display(" check index kunal is not availbe ");
+
+
+    
+
+    
+
+  end
+endmodule 
+
+
+
+
+
+
+
+
+
+
+
+
+
