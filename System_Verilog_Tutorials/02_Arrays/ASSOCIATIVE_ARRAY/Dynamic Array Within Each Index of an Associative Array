@@ -1,0 +1,12 @@
+// Dynamic Array Within Each Index of an Associative Array
+
+typedef int dy[];
+module tab;
+  dy d[string];
+  
+  initial begin
+    d["kunal"]=new[3];
+    d["kunal"]='{11,22,55,12,56};
+    $display("a=%0p",d);
+  end
+endmodule
