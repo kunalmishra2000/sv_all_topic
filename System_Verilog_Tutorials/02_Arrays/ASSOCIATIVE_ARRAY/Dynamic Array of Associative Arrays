@@ -1,0 +1,27 @@
+Dynamic Array of Associative Arrays
+module tab;
+  int a[][string];
+ 
+  initial begin
+    a=new[3];
+    $display("a=%0p", a);
+    $display("size=%0p", $size(a));
+
+    
+    //assign value
+    a[0]["kunal"]=12;
+    a[1]["sakshi"]=11;
+    a[2]["shivam"]=66;
+    $display("a=%0p", a);
+    
+    foreach(a[i])begin
+      foreach(a[i][j])begin
+        $display("a[%0d][%s]=%0p", i,j,a[i][j]);
+      end
+    end
+    
+  end
+endmodule
+
+
+
