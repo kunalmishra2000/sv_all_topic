@@ -1,0 +1,29 @@
+// // //Dynamic Array Example
+// // //simple generate dynamic array 
+// // // use size and delete method
+// // //How to Add New Items to a Dynamic Array?
+
+// // module tab;
+// //   int a[];
+  
+// //   initial begin
+// //     a=new[6];
+    
+// //     a='{66,88,11,0,99,11};
+    
+// //     $display("a=%0p", a);
+    
+    
+// //     $display("size of arrayy =%0d", $size(a));
+// //     $display("size of arrayy =%0d", a.size());
+
+
+// //     a.delete();
+// //     $display("delete entire index=%0p", $size(a));
+    
+// //    // How to Add New Items to a Dynamic Array? and get old value
+// //     a=new[a.size+1] (a);
+// //         $display("size of arrayy =%0d", $size(a));
+// //         $display("a=%0p", a);
+// //   end
+// // endmodule 
