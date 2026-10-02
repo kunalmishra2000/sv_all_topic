@@ -1,0 +1,16 @@
+prioerity_case :  when multiple condition is true
+// when multiple condition is true  then take first true condition
+module tab;
+  bit[1:0] a;
+  
+  initial begin
+    a=1;
+    priority case(a)
+      1 : $display(" found is 1");
+      1 : $display(" found is 1");
+      2 : $display(" found is 2");
+    endcase
+    
+  end
+  
+endmodule
