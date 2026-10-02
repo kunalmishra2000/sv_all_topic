@@ -1,0 +1,31 @@
+
+  
+  
+
+ 
+
+
+// foreach loop
+
+
+ module tab;
+   bit[7:0] a[10];
+  bit clk;
+  
+  always #5 clk = ~clk;
+  
+  initial begin
+    foreach(a[i])begin
+            @(posedge clk);
+      $display($time," increment loop at the end of the index=%0d", i);
+    end
+  end
+  
+  initial begin
+    clk
+    $dumpfile("dump.vcd");
+    $dumpvars();
+    #100 $finish();
+  end
+  
+endmodule
