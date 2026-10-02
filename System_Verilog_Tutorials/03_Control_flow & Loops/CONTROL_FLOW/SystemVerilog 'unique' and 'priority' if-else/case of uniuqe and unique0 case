@@ -1,0 +1,29 @@
+// case of uniuqe and unique0 case
+
+/*unique means:
+
+At most one case item should match.
+
+At least one case item should match.
+
+So the simulator can warn if:
+
+Multiple items match → violation
+
+No item matches → violation*/
+
+//Example : if any condition is not match
+
+module tab;
+  bit[1:0] a;
+  
+  initial begin
+    a=1;
+    unique case(a)
+      0 : $display(" found is 0");
+      2 : $display(" found is 2");
+    endcase
+    
+  end
+  
+endmodule
