@@ -1,0 +1,16 @@
+Priority_case 
+when single condition is true   :- it's work
+
+module tab;
+  bit[1:0] a;
+  
+  initial begin
+    a=1;
+    priority case(a)
+      1 : $display(" found is 1");
+      2 : $display(" found is 2");
+    endcase
+    
+  end
+  
+endmodule
