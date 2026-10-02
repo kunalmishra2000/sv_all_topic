@@ -1,0 +1,12 @@
+//SystemVerilog repeat
+
+
+// module tab;
+  
+//   initial begin
+    
+//     repeat(5)begin
+//       $display(" kunal");
+//     end
+//   end
+// endmodule
