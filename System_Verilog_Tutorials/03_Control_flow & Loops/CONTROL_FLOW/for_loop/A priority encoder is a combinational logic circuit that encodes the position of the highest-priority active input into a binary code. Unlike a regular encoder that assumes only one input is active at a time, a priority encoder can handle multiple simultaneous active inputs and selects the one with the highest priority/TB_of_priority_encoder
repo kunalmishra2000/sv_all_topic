@@ -1,0 +1,66 @@
+//for loop
+
+module tab;
+  parameter width=4;
+  
+  logic [width-1:0] encoder;
+  logic [$clog2(width)-1:0] out;
+  logic valid;
+  
+  des#(.width(width)) d( .encoder(encoder), .valid(valid), .out(out));
+  
+  
+  initial begin
+    
+    //using loop generate testcase for only single input high at a time
+    for( int i=0 ; i<width; i++)begin
+      encoder  =1<<i; //using shifting method to shift 1 bit base one i (how many time need to shift)
+      #5;
+      $display("[oop generate testcase] encoder=%b valid=%b output=%b", encoder,valid, out);
+      
+    end
+ 
+  $display("=== Priority Encoder Testbench ===");
+  
+    // Direct_test_case 1 (initial test case check default case)
+    
+      encoder =4'b0000;
+        #1;
+      $display("encoder=%b valid=%b output=%b", encoder,valid, out);
+    // Direct_test_case 2
+       encoder =4'b1000;
+        #1;
+        $display("encoder=%b valid=%b output=%b", encoder,valid, out);
+    // Direct_test_case 3
+        encoder =4'b0100;
+        #1;
+        $display("encoder=%b valid=%b output=%b", encoder,valid, out);
+    // Direct_test_case 4
+        encoder =4'b0010;
+        #1;
+        $display("encoder=%b valid=%b output=%b", encoder,valid, out);
+    // Direct_test_case 5
+        encoder =4'b0001;
+        #1;
+        $display("encoder=%b valid=%b output=%b", encoder,valid, out);
+    // Direct_test_case 6
+        encoder =4'b1100;
+        #1;
+        $display("encoder=%b valid=%b output=%b", encoder,valid, out);
+    // Direct_test_case 7
+       encoder =4'b0110;
+        #1;
+        $display("encoder=%b valid=%b output=%b", encoder,valid, out);
+    
+
+       
+    
+  end
+  
+  
+  initial begin
+    $dumpfile("dump.vcd");
+              $dumpvars();
+              end
+  
+endmodule
