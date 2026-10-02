@@ -1,0 +1,23 @@
+class Monitor;
+	virtual task run();
+		forever begin
+			@(posedge vif.clk);
+			if (vif.write & vif.sel)
+				// Capture write data
+			if (!vif.write & vif.sel)
+				// Capture read data
+		end
+	endtask
+endclass
+
+module tb;
+	Monitor mon = new();
+
+	// Start the monitor task and allow it to continue as
+	// long as there is activity on the bus
+	initial begin
+		fork
+			mon.run();
+		join_none
+	end
+endmodule
