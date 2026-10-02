@@ -1,0 +1,17 @@
+module tab;
+  int count;
+  
+  initial begin
+     do begin
+
+     $display("count=%0d", count);
+      count++;
+     end
+       
+     while(count ==0);
+       $display(" condition is excited");
+               
+               
+               end
+               
+               endmodule
