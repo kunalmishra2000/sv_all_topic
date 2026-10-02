@@ -1,0 +1,27 @@
+/*
+A Genuine Race: Two Blocking Assignments, Same Trigger
+Here, two separate always blocks both trigger on the same clock edge. One writes a; the other reads a to compute b:
+*/
+
+module tb;
+  reg clk;
+  reg [7:0] a, b;
+
+  always #10 clk = ~clk;
+
+  // Block 1
+  always @ (posedge clk) begin
+    a = 5;
+    $display("a=%0d b=%0d",a,b);
+  end
+
+  // Block 2
+  always @ (posedge clk) begin
+    b = a + 1;
+        $display("a=%0d b=%0d",a,b);
+
+  end
+  initial begin
+    #100 $finish();
+  end
+endmodule
