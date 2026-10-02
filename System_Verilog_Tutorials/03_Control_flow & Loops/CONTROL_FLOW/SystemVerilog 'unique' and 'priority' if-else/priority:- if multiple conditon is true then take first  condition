@@ -1,0 +1,21 @@
+
+// priority:- if multiple conditon is true then take first  condition
+//If a and b are both true, a wins.
+
+module tab;
+  
+  int x=10;
+  
+  initial begin
+    
+    priority if(x==10)
+      $display("x=%0d", x);
+    else if (x==10)
+            $display("x=%0d", x);
+    else if(x==4)
+            $display("x=%0d", x);
+
+    else 
+      $display("[not any condition is true] x=%0d", x);
+  end
+endmodule
