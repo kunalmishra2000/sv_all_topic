@@ -1,0 +1,29 @@
+
+
+//Example #1: Single dimensional Arrays
+
+
+module tab;
+  int a[5];
+  
+  int sum_odd;
+  initial begin
+    
+    a='{1,2,3,4,5};
+    
+
+
+    
+            //sum of all odd index value  
+    
+    foreach(a[i])begin
+      if(i%2!=0)begin
+      sum_odd +=a[i];
+      
+      end
+      
+  end
+    $display(" sum of all odd index value  =%0p", sum_odd);
+
+  end
+endmodule
