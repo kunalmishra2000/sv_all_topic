@@ -1,0 +1,38 @@
+//In the code shown below, we have a repeat loop to wait for a given number of clock cycles.
+/*
+In this example, the clock period is 20 ns, and the first posedge of clock happens at 10 ns. 
+Next 3 posedge of clock happens at 30ns, 50ns and 70ns after which the initial block ends. 
+So, this repeat loop successfully waits until 4 posedge of clocks are over
+*/
+
+module tab;
+  
+  bit clk;
+  bit[2:0] delay;
+  always #10 clk = ~clk;
+  
+  initial begin
+    delay= $random();
+    
+    $display ("[%0t] Repeat loop is going to start with num = %0d", $time, delay);
+    repeat(delay) @(posedge clk);
+    		$display ("[%0t] Repeat loop has finished", $time);
+
+    $finish();
+  end
+  
+  initial begin
+    $dumpfile("dump.vcd");
+    $dumpvars();
+  end
+  
+endmodule
+    
+    
+    
+    
+    
+    
+    
+    
+    
