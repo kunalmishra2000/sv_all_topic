@@ -1,0 +1,22 @@
+
+
+// No else clause in priority-if
+// if not any conditon is true then what happend
+
+module tab;
+  
+  int x=10;
+  
+  initial begin
+    
+    priority if(x==3)
+      $display("x=%0d", x);
+    else if (x==5)
+            $display("x=%0d", x);
+    else if(x==4)
+            $display("x=%0d", x);
+
+    else 
+      $display("[not any condition is true] x=%0d", x);
+  end
+endmodule
