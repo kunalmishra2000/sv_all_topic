@@ -1,0 +1,27 @@
+
+
+//Example #1: Single dimensional Arrays
+
+
+module tab;
+  int a[5];
+  int sum;
+ 
+  initial begin
+    
+    a='{1,2,3,4,5};
+    
+
+    
+    //sum of all value inside index
+    
+    foreach(a[i])begin
+      sum +=a[i];
+      
+
+      
+  end
+          $display(" sum of all value inside index =%0p", sum);
+
+   end
+   endmodule
