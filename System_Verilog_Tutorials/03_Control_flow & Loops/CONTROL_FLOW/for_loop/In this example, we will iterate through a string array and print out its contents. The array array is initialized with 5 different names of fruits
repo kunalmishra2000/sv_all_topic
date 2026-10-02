@@ -1,0 +1,18 @@
+
+/*
+In this example, we will iterate through a string array and print out its contents. The array array is initialized with 5 different names of fruits
+*/
+
+
+module tab;
+  string fruit[5];
+  
+  initial begin
+    
+    fruit='{"apple", "mango", "orange", "pear", "pineapple"};
+    
+    for(int i=0; i<$size(fruit); i++)begin
+      $display("fruit[%0d]=%0p", i, fruit[i]);
+    end
+  end
+endmodule
