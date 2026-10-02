@@ -1,0 +1,17 @@
+//SystemVerilog while and do-while loop
+
+// module tab;
+//   int a=10;
+//   int count=0;
+  
+//   initial begin
+//     while(a>count)begin
+//       $display("count=%0d", count);
+//                count++;
+//                end
+               
+//                end
+               
+//                endmodule
+      
+
