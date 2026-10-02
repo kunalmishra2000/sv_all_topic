@@ -1,0 +1,16 @@
+module tab;
+  int count;
+  
+  initial begin
+    while(count !=0)begin
+      $display("count=%0d", count);
+               count++;
+               end
+               
+               end
+               
+               endmodule
+
+
+
+
