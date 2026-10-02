@@ -1,0 +1,21 @@
+//
+
+// module tab;
+  
+  
+//   initial begin
+//     repeat(10) begin: forever_b
+//       $display($time," using forever loop");
+
+      
+//     end
+    
+  
+    
+//   end
+  
+
+
+  
+  
+// endmodule 
