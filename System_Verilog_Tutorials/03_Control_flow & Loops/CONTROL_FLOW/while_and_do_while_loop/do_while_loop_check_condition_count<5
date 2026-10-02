@@ -1,0 +1,20 @@
+
+//do while loop
+
+module tab;
+  int count;
+  
+  initial begin
+     do begin
+
+     $display("count=%0d", count);
+      count++;
+     end
+       
+     while(count <5);
+       $display(" condition is excited");
+               
+               
+               end
+               
+               endmodule
