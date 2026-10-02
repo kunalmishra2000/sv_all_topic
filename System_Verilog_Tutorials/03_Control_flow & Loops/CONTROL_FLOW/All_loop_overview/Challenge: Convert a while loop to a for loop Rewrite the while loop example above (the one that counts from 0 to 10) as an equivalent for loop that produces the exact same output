@@ -1,1 +1,16 @@
 
+// module tb;
+//  bit clk;
+
+//   always #10 clk = ~clk;
+//   initial begin
+//     bit [3:0] counter;
+
+//     $display ("Counter = %0d", counter);
+//     for (counter = 0; counter < 10; counter++) begin
+//       @(posedge clk);
+//       $display ("Counter = %0d", counter+1);
+//     end
+//     $finish;
+//   end
+// endmodule
