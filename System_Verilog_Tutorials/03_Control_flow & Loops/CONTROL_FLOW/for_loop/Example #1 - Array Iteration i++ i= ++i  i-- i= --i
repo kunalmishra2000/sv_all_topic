@@ -1,0 +1,28 @@
+//Example #1 - Array Iteration i++ i= ++i  i-- i= --i
+
+module tab;
+  
+  
+  initial begin
+    //i++
+    for(int i=0; i<5; i++)begin
+      $display("i=%0d", i);
+    end
+    //i= ++i
+    
+    for(int i=0; i<5; i= ++i)begin
+      $display("i=%0d", i);
+    end
+    
+    //i--
+    for(int i=5; i>0; i--)begin
+      $display("i=%0d", i);
+    end
+    
+    //i --i;
+    for(int i=5; i>0; i= --i)begin
+      $display("i=%0d", i);
+    end
+    
+  end
+endmodule
