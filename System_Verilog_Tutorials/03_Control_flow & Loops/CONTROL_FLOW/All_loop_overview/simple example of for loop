@@ -1,0 +1,27 @@
+
+
+
+
+//for loop
+
+ module tab;
+  int a=10;
+  bit clk;
+  
+  always #5 clk = ~clk;
+  
+  initial begin
+    for( int i=0; i<a; i=i+2)begin
+      $display($time," using forever loop  i=%0d",i);
+      @(posedge clk);
+      
+    end
+  end
+  
+  initial begin
+    $dumpfile("dump.vcd");
+    $dumpvars();
+    #100 $finish();
+  end
+  
+endmodule 
