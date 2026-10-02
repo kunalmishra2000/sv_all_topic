@@ -1,0 +1,26 @@
+
+//while loop
+
+module tab;
+  int a=10;
+   int count=0;
+  bit clk;
+  
+  always #5 clk = ~clk;
+  
+  initial begin
+    while(a>count) begin:forever_b
+      $display($time," using forever loop ");
+      @(posedge clk);
+  count++;
+      
+    end
+  end
+  
+  initial begin
+    $dumpfile("dump.vcd");
+    $dumpvars();
+    #100 $finish();
+  end
+  
+endmodule 
