@@ -35,5 +35,14 @@ module des#(parameter width=4)( input logic [width-1:0] encoder,output logic val
       end
       
     endcase
+/*
+   //using for loop  other logic
+    for(int i=0; i<width; i++)begin
+      if(encoder[i])begin
+        out =i;
+      valid =1'b1;
+      end
+  end
+*/ 
   end
 endmodule
