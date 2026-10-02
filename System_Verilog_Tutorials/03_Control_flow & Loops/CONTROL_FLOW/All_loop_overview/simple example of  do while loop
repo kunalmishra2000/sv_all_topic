@@ -1,0 +1,33 @@
+
+
+//do while loop
+
+ module tab;
+  int a=10;
+  int  count=11;
+  bit clk;
+  
+  always #5 clk = ~clk;
+  
+  initial begin
+    do begin
+       @(posedge clk);
+              count++;
+
+      $display($time," using forever loop  count=%0d",count);
+     
+    end
+    while(a >count);
+    $display($time," condition is excited");
+      
+      
+    end
+  
+  
+  initial begin
+    $dumpfile("dump.vcd");
+    $dumpvars();
+    #100 $finish();
+  end
+  
+endmodule
