@@ -1,0 +1,32 @@
+                 // //All_loop_overview
+
+
+// module tab;
+  
+  
+//   initial begin
+//     forever begin : forever_b
+//       $display($time," using forever loop");
+//       #5;
+      
+//         //using break 
+
+//       if($time >= 50)
+//       break;
+      
+//     end
+    
+  
+    
+//   end
+  
+
+//  // initial #50  $finish();
+  
+// //  initial #50 $stop();
+  
+// //   //not working 
+// //   initial begin
+// //    #50 disable forever_b;
+// //   end
+  
