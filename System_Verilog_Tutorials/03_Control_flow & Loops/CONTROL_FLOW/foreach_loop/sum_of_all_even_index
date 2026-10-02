@@ -1,0 +1,31 @@
+
+
+//Example #1: Single dimensional Arrays
+
+
+module tab;
+  int a[5];
+  int sum_even;
+  initial begin
+    
+    a='{1,2,3,4,5};
+    
+
+  
+
+    
+        //sum of all even index value  
+    
+    foreach(a[i])begin
+      if(i%2==0)begin
+      sum_even +=a[i];
+      
+      end
+
+      
+  end
+                $display(" sum of all even index value  =%0p", sum_even);
+
+  
+  end
+endmodule
