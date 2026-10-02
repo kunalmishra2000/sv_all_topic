@@ -1,0 +1,23 @@
+
+//
+/*
+Example #3 - Adding multiple modifiers
+In the code shown below, j is decremented after each iteration of the for loop along with incrementing i.
+*/
+
+module tab;
+  string fruit[5];
+  initial begin
+    
+    fruit='{"apple", "mango", "orange", "pear", "pineapple"};
+    
+    // it's replace word size of j repacing wor is "o"
+    
+    for(int i=0, j=$size(fruit)-1; i<$size(fruit); i++, j--)begin
+      fruit[i][j]="O";
+      
+      $display("fruit[%0d]=%0p %0dth index replaced by 0", i, fruit[i],j);
+      
+    end
+  end
+endmodule
