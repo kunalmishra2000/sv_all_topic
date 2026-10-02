@@ -1,0 +1,18 @@
+// using unique :- if multiple condition is true then through warning/error
+module tab;
+  
+  int x=10;
+  
+  initial begin
+    
+    unique if(x==10)
+      $display("x=%0d", x);
+    else if (x==10)
+            $display("x=%0d", x);
+    else if(x==4)
+            $display("x=%0d", x);
+
+    else 
+      $display("[not any condition is true] x=%0d", x);
+  end
+endmodule
