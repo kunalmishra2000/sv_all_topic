@@ -1,0 +1,39 @@
+/*
+Design Example
+A priority encoder is a combinational logic circuit that encodes the position of the highest-priority active input into a binary code. Unlike a regular encoder that assumes only one input is active at a time, a priority encoder can handle multiple simultaneous active inputs and selects the one with the highest priority
+*/
+
+module des#(parameter width=4)( input logic [width-1:0] encoder,output logic valid, output logic[$clog2(width)-1:0] out);
+  
+  always_comb begin
+    valid =1'b0;
+    out =2'b00;
+    
+    casez (encoder)
+      4'b1??? : begin
+        out = 2'b11 ; //high priority
+        valid=1'b1;
+      end
+
+      4'b01?? : begin
+        out = 2'b10 ; 
+        valid=1'b1;
+      end
+
+      4'b001? :begin
+        out = 2'b01 ;
+        valid=1'b1;
+      end
+      
+      4'b0001 : begin
+        out = 2'b00 ; //lowest priority 
+        valid=1'b1;   
+      end
+      default:begin
+        out = 2'b00;
+         valid =1'b0;
+      end
+      
+    endcase
+  end
+endmodule
