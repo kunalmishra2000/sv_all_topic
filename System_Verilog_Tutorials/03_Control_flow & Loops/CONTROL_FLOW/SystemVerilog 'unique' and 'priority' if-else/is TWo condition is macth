@@ -1,0 +1,17 @@
+// is TWo condition is macth
+//unique : More than one case item matches
+
+module tab;
+  bit[1:0] a;
+  
+  initial begin
+    a=1;
+    unique case(a)
+      1 : $display(" found is 1");
+      1 : $display(" found is 0");
+      2 : $display(" found is 2");
+    endcase
+    
+  end
+  
+endmodule
