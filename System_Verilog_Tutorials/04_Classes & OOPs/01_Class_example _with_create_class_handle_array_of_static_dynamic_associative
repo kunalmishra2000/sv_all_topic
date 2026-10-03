@@ -1,0 +1,88 @@
+class myPacket;
+	bit [2:0]  header;
+	bit        encode;
+	bit [2:0]  mode;
+	bit [7:0]  data;
+	bit        stop;
+  int index;
+  string name;
+
+  function new (bit [2:0] header = 3'h1, bit [2:0] mode = 5, string name, int index);
+		this.header = header;
+		this.encode = 0;
+		this.mode   = mode;
+		this.stop   = 1;
+        this.name =name;
+        this.index=index;
+	endfunction
+
+	function void display ();
+      $display ("[NAME=%s][INDEX=%0d] Header = 0x%0h, Encode = %0b, Mode = 0x%0h, Stop = %0b",
+		           this.name, this.index,this.header, this.encode, this.mode, this.stop);
+	endfunction
+endclass
+//How Do I Access Properties and Methods?
+//with array of class handle
+
+//How Do I Create an Array of Class Objects?
+// example of static , dynamic   and associative array
+
+1.static array
+module tb_top;
+  myPacket pkt0[5], pkt1[3];
+
+	initial begin
+      
+      foreach(pkt0[i])begin
+        pkt0[i] = new (3'h2, 3'h3, "static_array_of_pkt0", i);
+        pkt0[i].display ();
+      end
+
+        foreach(pkt1[i])begin
+          pkt1[i] = new (3'h1, 3'h6,"static_array_of_pkt1", i);
+          pkt1[i].display ();
+	end
+      end
+endmodule
+
+DYnamic array
+
+module tb_top;
+  myPacket pkt0[], pkt1[];
+
+	initial begin
+      pkt0=new[4];
+      pkt1=new[2];
+      
+      foreach(pkt0[i])begin
+        pkt0[i] = new (3'h2, 3'h3, "Dynamic_array_of_pkt0", i);
+        pkt0[i].display ();
+      end
+
+        foreach(pkt1[i])begin
+          pkt1[i] = new (3'h1, 3'h6,"dynamic_array_of_pkt1", i);
+          pkt1[i].display ();
+	end
+      end
+endmodule
+
+
+
+//associative array
+
+module tb_top;
+  myPacket pkt0[int], pkt1[int];
+int i;
+	initial begin
+      
+      
+      pkt0[0] = new (3'h2, 3'h3, "associative_array_of_pkt0", i);
+      pkt0[0].display ();
+      pkt0[1] = new (3'h2, 3'h3, "associative_array_of_pkt0", i);
+      pkt0[1].display ();
+
+      pkt1[0] = new (3'h1, 3'h6,"associative_array_of_pkt1", i);
+      pkt1[0].display ();
+      end
+endmodule
+
