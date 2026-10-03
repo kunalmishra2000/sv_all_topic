@@ -1,0 +1,13 @@
+// #0 Delay 
+
+module tab;
+  
+  int a;
+  
+  initial begin
+   fork 
+     #0 $display("apply #0 delay a=%0d",a); // it's in inactive region
+     $display(" active region %0d", a); // it's display in active region
+   join 
+  end
+endmodule
