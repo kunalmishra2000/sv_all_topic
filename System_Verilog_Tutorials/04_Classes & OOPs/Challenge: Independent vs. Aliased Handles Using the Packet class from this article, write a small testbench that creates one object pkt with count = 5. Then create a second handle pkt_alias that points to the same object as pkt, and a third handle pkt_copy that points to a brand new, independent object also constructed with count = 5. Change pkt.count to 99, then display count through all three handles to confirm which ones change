@@ -1,2 +1,40 @@
 Challenge: Independent vs. Aliased Handles
 Using the Packet class from this article, write a small testbench that creates one object pkt with count = 5. Then create a second handle pkt_alias that points to the same object as pkt, and a third handle pkt_copy that points to a brand new, independent object also constructed with count = 5. Change pkt.count to 99, then display count through all three handles to confirm which ones change
+
+
+/*
+Challenge: Independent vs. Aliased Handles
+Using the Packet class from this article, write a small testbench that creates one object pkt with count = 5. Then create a second handle pkt_alias that points to the same object as pkt, and a third handle pkt_copy that points to a brand new, independent object also constructed with count = 5. Change pkt.count to 99, then display count through all three handles to confirm which ones changed.
+  */
+  
+class packet;
+  int count;
+  string name;
+  
+  function new(int c);
+    count =c;
+  endfunction
+  
+  function void display(string name);
+    $display("name=%s count=%0d",name, count);
+  endfunction
+endclass
+
+module tab;
+  packet pac, pac_alias, pkt_copy;
+  
+  initial begin
+    pac=new(5);
+    pac.display("display_pac");
+
+    pac_alias=pac;
+    pac_alias.display("pac_alias_of_pac");
+
+    pkt_copy=new(5);
+    pkt_copy.display("pkt_copy");
+
+    pac.count=99;
+    pac.display("pac_value override");
+  end
+endmodule 
+    
