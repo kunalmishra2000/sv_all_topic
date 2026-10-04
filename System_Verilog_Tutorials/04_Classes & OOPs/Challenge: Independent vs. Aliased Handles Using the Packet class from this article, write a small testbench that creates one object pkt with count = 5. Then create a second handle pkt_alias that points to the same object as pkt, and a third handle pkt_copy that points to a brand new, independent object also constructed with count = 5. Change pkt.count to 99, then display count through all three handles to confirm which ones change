@@ -1,0 +1,2 @@
+Challenge: Independent vs. Aliased Handles
+Using the Packet class from this article, write a small testbench that creates one object pkt with count = 5. Then create a second handle pkt_alias that points to the same object as pkt, and a third handle pkt_copy that points to a brand new, independent object also constructed with count = 5. Change pkt.count to 99, then display count through all three handles to confirm which ones change
