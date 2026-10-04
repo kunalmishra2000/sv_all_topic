@@ -1,0 +1,22 @@
+//SystemVerilog Class Constructor
+//Constructor Can't Be virtual or static :-  it's allow in system verilog (through error).
+
+/*
+Challenge: Three Levels of Constructor Chaining
+Extend the baseClass/subClass example with a third class, grandchildClass, that extends subClass and adds its own property tag (default value 7). Its constructor should call super.new() and accept its own argument for id. Predict what data, id, mode, and tag will show when constructed with no arguments.
+*/
+class grandchildClass extends subClass;
+  bit [3:0] tag = 7;
+
+  function new (int val = 2);
+    super.new (val);
+  endfunction
+endclass
+
+module tb;
+  initial begin
+    grandchildClass gc;
+    gc = new ();
+    $display ("data=0x%0h id=%0d mode=%0d tag=%0d", gc.data, gc.id, gc.mode, gc.tag);
+  end
+endmodule
