@@ -1,0 +1,45 @@
+// check project without create memory of class
+// class packet;
+//    int a;
+  
+// endclass
+
+// module tab;
+//   packet pac;
+  
+//   initial begin
+    
+    
+//     if(pac==null)
+//       $display(" this class have no  memory [ through null error");
+//     else
+//       $display(" this class have   memory [ NOT through null error");
+//   end
+// endmodule 
+
+
+//What Happens When Two Handles Point to the Same Object?
+
+// class packet;
+//     int a;
+  
+// endclass
+
+// module tab;
+//   packet pac, pak1;
+  
+//   initial begin
+//     pac=new();
+//     pac.a=5;
+//     $display("[pkt1] a=%0d", pac.a);
+    
+//      pak1=pac;
+//     $display("[pkt2] Not create memory of this pkt  but, copy pck data in pkt1  a=%0d", pak1.a);
+    
+//      pac.a=7;
+//     $display("[pck] override packet data a=%0d", pac.a);
+//     $display("[pck] override packet data and now what data have packet1 a=%0d", pak1.a);
+    
+    
+//   end
+// endmodule
