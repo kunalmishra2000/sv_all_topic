@@ -1,0 +1,23 @@
+//The Classic Case: A Shadowed Constructor Argument
+//The most common reason to reach for this is inside a constructor whose argument shares a name with the class property it's meant to initialize
+
+class packet;
+  int a;
+  
+  function new(int a);
+    this.a=a; //  addr variable in Packet class should be
+		                      //  assigned with local variable addr in new()
+  endfunction
+  
+  function void display();
+    $display("a=%0d",a);
+  endfunction
+endclass
+
+module tab;
+  packet pac;
+  initial begin
+    pac=new(5);
+    pac.display();
+  end
+endmodule 
