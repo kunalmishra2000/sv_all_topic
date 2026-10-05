@@ -2,7 +2,8 @@
 Challenge: Predict a Successful and a Failed Cast
 Using the Packet/ExtPacket classes from this article, write code that creates a plain Packet object and a separate ExtPacket object, assigns both to Packet-typed handles, and attempts $cast into an ExtPacket-typed handle from each one. Predict which cast succeeds and which fails.
 */
-
+//casting needs
+1. Casting is needed for the opposite direction, a downcast (base handle → child handle)
 class base;
   int address;
  
