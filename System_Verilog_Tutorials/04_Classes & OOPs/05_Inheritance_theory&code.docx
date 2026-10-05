@@ -40,4 +40,54 @@ module tab;
 
   end
 endmodule
+
+
+//other example about super  and const
+
+//SystemVerilog Inheritance
+class base;
+  int address;
+  
+//   function new(int addres);
+//       address=addres;
+//   endfunction
+  
+  
+  function void display();
+    $display("address=%0h",address);
+  endfunction
+  
+endclass
+
+class child extends base;
+  int  data;
+  function new();
+    //  super.new(); //it's usefull when, construct new have arguement 
+    this.data = data;
+    
+  endfunction
+    
+  function void display();
+    $display("address=%0h data=%0h",address,data);
+  endfunction
+  
+endclass
+
+module tab;
+  
+  base bas1;
+  child chil1;
+  
+  initial begin
+    bas1=new();
+    chil1=new();
+     bas1.address=5;
+    chil1.address=9;
+    chil1.data=100;
+    bas1.display();
+    chil1.display();
+    
+
+  end
+endmodule
     
