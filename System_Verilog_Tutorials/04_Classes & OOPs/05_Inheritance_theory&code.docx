@@ -1,0 +1,43 @@
+//SystemVerilog Inheritance
+class base;
+  int address;
+  
+  function new(int addres);
+      address=addres;
+  endfunction
+  
+  
+virtual  function void display();
+    $display("address=%0h",address);
+  endfunction
+  
+endclass
+
+class child extends base;
+  int  data;
+  function new(int addr,data);
+   super.new(addr);
+    this.data = data;
+    
+  endfunction
+    
+  function void display();
+    $display("address=%0h data=%0h",address,data);
+  endfunction
+  
+endclass
+
+module tab;
+  
+  base bas1;
+  child chil1;
+  
+  initial begin
+    bas1=new(32'hfacecafe);
+    bas1.display();
+    chil1=new(32'hcafe_face, 32'h1232_4532);
+    chil1.display();
+
+  end
+endmodule
+    
