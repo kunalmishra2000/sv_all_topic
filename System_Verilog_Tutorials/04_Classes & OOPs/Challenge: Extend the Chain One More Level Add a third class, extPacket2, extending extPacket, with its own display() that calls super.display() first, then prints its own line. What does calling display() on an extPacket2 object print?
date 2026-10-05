@@ -1,0 +1,45 @@
+/*
+Challenge: Extend the Chain One More Level
+Add a third class, extPacket2, extending extPacket, with its own display() that calls super.display() first, then prints its own line. What does calling display() on an extPacket2 object print?
+*/
+
+class packet;
+  int a;
+  
+  function display();
+    $display("base_class a=%0d", a);
+    endfunction
+    
+endclass
+
+class child extends packet;
+  
+  function display();
+    super.display(); // this logic calling base class
+    $display("child class a=%0d", a);
+  endfunction
+
+endclass
+
+class child2 extends child;
+  
+  function display();
+    super.display(); // this logic calling base class
+    $display("GRAND_child class a=%0d", a);
+  endfunction
+
+endclass
+
+module tab;
+  packet p;
+  child2 c;
+  
+  initial begin
+    p=new();
+    c=new();
+
+    c.a=8;
+    
+    c.display();
+  end
+endmodule
