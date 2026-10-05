@@ -1,0 +1,26 @@
+/*
+Challenge: Fix a Shadowed Setter
+Write a class Config with a property mode, and a method set_mode(bit [1:0] mode) whose argument shares a name with the property. Use this to assign it correctly, then verify with a small testbench.
+*/
+
+class configs;
+  int mode;
+  
+  function int set_mode(int mode);
+    this.mode=mode; //  addr variable in Packet class should be
+		                      //  assigned with local variable addr in new()
+  endfunction
+  
+  function void display();
+    $display("mode=%0d",mode);
+  endfunction
+endclass
+
+module tab;
+  configs pac;
+  initial begin
+    pac=new();
+    pac.set_mode(5);
+    pac.display();
+  end
+endmodule 
