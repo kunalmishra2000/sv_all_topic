@@ -1,0 +1,65 @@
+/*
+Challenge: Chain super.display() Across Three Levels
+Extend ExtPacket with a third class, ExtPacket2, adding its own property crc. Give it a display() that calls super.display() first, then prints crc. What gets printed when you call display() on an ExtPacket2 object?
+
+
+*/
+
+class base;
+  int address;
+  
+  function new(int addres);
+      address=addres;
+  endfunction
+  
+  
+virtual  function void display();
+    $display("address=%0h",address);
+  endfunction
+  
+endclass
+
+class child extends base;
+  int  data;
+  function new(int addr,data);
+   super.new(addr);
+    this.data = data;
+    
+  endfunction
+    
+  function void display();
+    $display("address=%0h data=%0h",address,data);
+  endfunction
+  
+endclass
+
+class child2 extends  child;
+  int crc;
+  
+  function new(int addre, data, crc);
+    super.new(addre,data);
+    this.crc=crc;
+  endfunction
+  
+  function void display();
+    super.display();
+    $display("address=%0h data=%0h crc=%0d",address,data,crc);
+  endfunction
+endclass
+module tab;
+  
+  base bas1;
+  child chil1;
+  child2 chil2;
+  
+  initial begin
+    bas1=new(32'hfacecafe);
+    bas1.display();
+    chil1=new(32'hcafe_face, 32'h1232_4532);
+    chil1.display();
+    
+    chil2=new(88,11,010);
+    chil2.display();
+
+  end
+endmodule
