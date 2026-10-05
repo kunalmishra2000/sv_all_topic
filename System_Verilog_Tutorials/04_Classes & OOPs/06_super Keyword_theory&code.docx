@@ -1,0 +1,31 @@
+class packet;
+  int a;
+  
+  function display();
+    $display("base_class a=%0d", a);
+    endfunction
+    
+endclass
+
+class child extends packet;
+  
+  function display();
+    super.display(); // this logic calling base class
+    $display("child class a=%0d", a);
+  endfunction
+
+endclass
+
+module tab;
+  packet p;
+  child c;
+  
+  initial begin
+    p=new();
+    c=new();
+
+    c.a=8;
+    
+    c.display();
+  end
+endmodule
