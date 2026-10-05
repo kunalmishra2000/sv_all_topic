@@ -1,0 +1,59 @@
+/*
+Challenge: Predict a Successful and a Failed Cast
+Using the Packet/ExtPacket classes from this article, write code that creates a plain Packet object and a separate ExtPacket object, assigns both to Packet-typed handles, and attempts $cast into an ExtPacket-typed handle from each one. Predict which cast succeeds and which fails.
+*/
+
+class base;
+  int address;
+ 
+  
+  
+virtual  function void display();
+  $display("address=%0d",address);
+  endfunction
+  
+endclass
+
+class child extends base;
+  int  data;
+    
+  function void display();
+    $display("address=%0d data=%0d",address,data);
+  endfunction
+  
+endclass
+
+
+module tab;
+  
+  base bas1,bas2;
+  child chil1,result;
+  
+  initial begin
+        chil1=new();
+            bas1=new();
+
+    bas1.address=101;
+   chil1.address=010;
+   chil1.data =121;
+ 
+    
+    // assign base class into child class 
+            bas1=chil1;
+//    $cast(chil1,bas1); // during this process we solve this issue  //  bas1= is soruce and chil1 is destination
+    
+    chil1.display();
+
+    if ($cast (result, bas1))
+      $display ("Cast from bc1 succeeded");
+    else
+      $display ("Cast from bc1 failed");
+
+    if ($cast (result, bas2))
+      $display ("Cast from bc2 succeeded");
+    else
+      $display ("Cast from bc2 failed");
+  end
+ 
+  
+endmodule
