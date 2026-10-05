@@ -44,3 +44,53 @@ module tab;
  
   end
 endmodule
+
+--------------------------------------------USING_CASTING_IN_POLYMERPHISM----------------------------------------------------------
+//Assign Base Class to Child Class(not allow in poly). how can we solve this issue  using $casting inside module
+
+class base;
+  int address;
+ 
+  
+  
+virtual  function void display();
+  $display("address=%0d",address);
+  endfunction
+  
+endclass
+
+class child extends base;
+  int  data;
+    
+  function void display();
+    $display("address=%0d data=%0d",address,data);
+  endfunction
+  
+endclass
+
+
+module tab;
+  
+  base bas1;
+  child chil1;
+  
+  initial begin
+        chil1=new();
+            bas1=new();
+
+    bas1.address=101;
+   chil1.address=010;
+   chil1.data =121;
+ 
+    
+    // assign base class into child class 
+            bas1=chil1;
+//    $cast(chil1,bas1); // during this process we solve this issue  //  bas1= is soruce and chil1 is destination
+    
+    chil1.display();
+    $display( "child_data=%0d", chil1.data);
+
+ 
+  end
+endmodule
+
