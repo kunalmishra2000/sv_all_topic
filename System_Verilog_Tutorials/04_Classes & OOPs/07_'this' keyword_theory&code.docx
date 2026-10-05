@@ -21,3 +21,26 @@ module tab;
     pac.display();
   end
 endmodule 
+
+
+Using this Inside a Constraint Block
+
+class Packet;
+  rand bit [7:0] addr;
+  rand bit [7:0] data;
+
+  constraint c_order { this.addr < this.data; }
+endclass
+
+Using this Inside a Covergroup
+class Packet;
+  rand bit [7:0] addr;
+
+  covergroup cg;
+    coverpoint this.addr;
+  endgroup
+
+  function new ();
+    cg = new ();
+  endfunction
+endclass
