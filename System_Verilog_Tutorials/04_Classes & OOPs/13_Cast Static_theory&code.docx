@@ -1,0 +1,6 @@
+module tb;
+
+	initial begin
+    $display("data=%0d", int'("Hello World"));
+end
+endmodule
