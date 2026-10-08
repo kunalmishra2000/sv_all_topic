@@ -1,0 +1,77 @@
+/*
+
+Challenge: Add Deep Copy for a Two-Level Nested Class
+Extend the example so that Header itself contains a nested object — a SubHeader class with a field priority_level. Update the copy() function in Packet to perform a complete deep copy of all three levels.
+*/
+class sub_header;
+  int priority_level;
+  
+  function new(int a);
+    priority_level= a;
+  endfunction
+endclass
+
+class header;
+  
+  int data,addr;
+  sub_header s_hrd;
+  
+  function new(int data,addr, int pri );
+    this.data = data;
+    this.addr = addr;
+    s_hrd = new(pri);
+    
+  endfunction
+  
+  function void copy_shrd(header h);
+    this.data = h.data;
+    this.addr = h.addr;
+    s_hrd.priority_level = h.s_hrd.priority_level;
+  endfunction
+  
+endclass
+
+class inner_class;
+  
+  int coder;
+  header p;
+  function new(int a,pri,int b,int c);
+    p=new(a,pri,b);
+    coder=c;
+    
+  endfunction
+  
+  function void copy(inner_class ic);
+   // p.s_hrd.priority_level =ic.p.priority_level;
+    this.p.addr=ic.p.addr;
+    this.p.data=ic.p.data;
+    this.p.copy_shrd(ic.p);
+    
+  endfunction
+
+  function void display(string name);
+    $display("NAME_OF_PROCESS=%s  pri=%0d addr=%0d data=%0d coder=%0d ",name,p.s_hrd.priority_level,p.addr,p.data,coder);
+  endfunction
+endclass
+
+module tab;
+  inner_class pac,pac1;
+  initial begin
+    pac=new(1,2,3,4);
+    pac.display("[PAC_HANDLE] simple_class_agruement");
+    
+    //do shallow copy process (fixed process for shallow copy)
+    pac1=new(8,9,10,11);
+    pac1.copy(pac);
+    pac1.display("{PAC1_HANDLE] do deep copy process");
+    
+    //now, we override pac variable and check it's also effect nested object
+    pac.p.s_hrd.priority_level=11;
+    pac.p.data=99;
+    pac.p.addr=87;
+    pac.coder=101;
+    pac.display("[PAC_HANDLE] now, we override pac variable and check it's also effect nested object");
+    
+    pac1.display("{PAC1_HANDLE_CHECK] now, we override pac variable and check it's also effect nested object");
+  end
+endmodule
