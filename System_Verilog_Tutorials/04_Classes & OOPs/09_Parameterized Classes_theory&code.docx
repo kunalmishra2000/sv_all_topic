@@ -1,0 +1,41 @@
+/*
+Challenge: Make a Three-Level Chain Virtual
+Using Packet, ExtPacket, and a third class ExtPacket2 (extending ExtPacket, adding a crc property and its own display()), declare display() as virtual at every level. Create an ExtPacket2 object, assign it to a Packet-typed handle, and call display() through that handle. Which version runs?
+
+
+*/
+
+
+class base#(parameter size=8);
+  bit [size-1:0] address;
+ 
+  
+  
+virtual  function void display();
+  $display("[base class] address_size=%0d",$size(address));
+  endfunction
+  
+endclass
+
+
+module tab;
+      // Override default value of 8 with the given values in #()
+  base #(16) a16;
+  base #(.size(8)) a8;
+  
+  typedef base #(4)a4;
+   a4 a4h;
+  
+  initial begin
+    
+    a16=new();
+    a16.display();
+    a8=new();
+    a8.display();
+    a4h=new();
+    a4h.display();
+    
+
+ 
+  end
+endmodule
