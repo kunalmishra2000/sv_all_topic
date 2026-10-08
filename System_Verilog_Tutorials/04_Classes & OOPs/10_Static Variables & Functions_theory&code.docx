@@ -1,0 +1,102 @@
+// Code your testbench here
+// or browse Examples
+//The Default: Each Instance Gets Its Own Copy
+
+// class packet;
+//    int data;
+//    int address;
+//    int counter;
+  
+//   function new( int data, int address);
+//     this.data = data;
+//     this.address = address;
+//     counter++;
+//   endfunction
+  
+//   function  post();
+//     $display("address=%0d data=%0d, counter_increment=%0d", address, data, counter);
+//   endfunction
+  
+// endclass
+
+// module tab;
+//   packet pac=new(5,10);
+//   initial begin
+//     pac=new(11,18);
+//     pac.post();
+//     pac=new(19,21);
+//     pac.post();
+//     pac=new(100,290);
+//     pac.post();
+//   end
+// endmodule
+
+//use static variable
+
+
+// class packet;
+//    int data;
+//    int address;
+//  static int counter=0;
+  
+//   function new( int data, int address);
+//     this.data = data;
+//     this.address = address;
+//     counter++;
+//   endfunction
+  
+//   function  post();
+//     $display("address=%0d data=%0d, counter_increment=%0d", address, data, counter);
+//   endfunction
+  
+// endclass
+
+// module tab;
+//   packet pac=new(5,10);
+//   initial begin
+//     pac.post();
+//     pac=new(11,18);
+//     pac.post();
+//     pac=new(19,21);
+//     pac.post();
+//     pac=new(100,290);
+//     pac.post();
+//   end
+// endmodule
+
+
+///static function
+
+
+class packet;
+ static  int data;
+ static  int address;
+ static  int counter;
+  
+   function new( int data, int address);
+    this.data = data;
+    this.address = address;
+    counter++;
+  endfunction
+  
+static  function  post();
+    $display("address=%0d data=%0d, counter_increment=%0d", address, data, counter);
+  endfunction
+  
+endclass
+
+module tab;
+  packet pac=new(5,10);
+  initial begin
+    pac.post();
+    pac=new(11,18);
+    pac.post();
+    pac=new(19,21);
+    pac.post();
+    pac=new(100,290);
+    pac.post();
+    
+    //without construct or object we call this class
+    packet::post(8,99);
+  end
+endmodule
