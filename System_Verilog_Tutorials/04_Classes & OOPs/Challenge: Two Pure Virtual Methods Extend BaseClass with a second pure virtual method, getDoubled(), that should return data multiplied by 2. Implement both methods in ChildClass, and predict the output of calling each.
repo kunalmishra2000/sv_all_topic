@@ -1,0 +1,46 @@
+/*
+Challenge: Two Pure Virtual Methods
+Extend BaseClass with a second pure virtual method, getDoubled(), that should return data multiplied by 2. Implement both methods in ChildClass, and predict the output of calling each.
+
+*/
+
+virtual class packet;
+  
+  int a;
+  
+ pure virtual function  int get_data;
+   pure virtual function int getdoubled;
+   
+ 
+  
+endclass
+
+class child extends packet;
+  
+  
+  function int get_data();
+      a=10;
+    return a;
+  endfunction
+  
+   function int getdoubled();
+      
+    return a*2;
+  endfunction
+  
+  function void kunal;
+    $display("data=%0d", a);
+  endfunction
+  
+endclass
+
+
+module tab;
+  child pac=new();
+  initial begin
+    pac.get_data();
+    pac.kunal();
+    pac.getdoubled();
+    pac.kunal();
+  end
+endmodule 
