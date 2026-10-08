@@ -1,0 +1,35 @@
+// abstract class
+
+virtual class packet;
+  
+  int a;
+  
+ pure virtual function kunal;
+   
+ 
+  
+endclass
+
+class child extends packet;
+  
+  int addr, data;
+  
+  function new();
+    addr=7;
+    data=091;
+    a=101;
+  endfunction
+  
+  function kunal;
+    $display("addr=%0d data=%0d a=%0d", addr,data, a);
+  endfunction
+  
+endclass
+
+
+module tab;
+  child pac=new();
+  initial begin
+    pac.kunal();
+  end
+endmodule 
