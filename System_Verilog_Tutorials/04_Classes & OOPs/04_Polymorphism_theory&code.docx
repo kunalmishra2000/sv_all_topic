@@ -72,7 +72,7 @@ endclass
 module tab;
   
   base bas1;
-  child chil1;
+  child chil1,chil2;
   
   initial begin
         chil1=new();
@@ -84,13 +84,11 @@ module tab;
  
     
     // assign base class into child class 
-            bas1=chil1;
-//    $cast(chil1,bas1); // during this process we solve this issue  //  bas1= is soruce and chil1 is destination
-    
+            bas1=chil1; //upcasting
+    $cast(chil2,bas1); // downcasting
     chil1.display();
-    $display( "child_data=%0d", chil1.data);
+    $display( "[chil2 handle] child_data=%0d", chil2.data);
 
  
   end
 endmodule
-
