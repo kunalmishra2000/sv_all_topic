@@ -1,0 +1,106 @@
+// //shallow copy
+
+class packet;
+  
+  int a;
+  
+  function new(int a);
+    this.a=a;
+    
+  endfunction
+  
+endclass
+
+class inner_class;
+  
+  int b,c;
+  packet p;
+  function new(int a,int b,int c);
+    p=new(a);
+    this.b=b;
+    this.c=c;
+    
+  endfunction
+
+  function void display(string name);
+    $display("NAME_OF_PROCESS=%s  a=%0d, b=%0d, c=%0d",name, p.a , b,c);
+  endfunction
+endclass
+
+module tab;
+  inner_class pac,pac1;
+  initial begin
+    pac=new(1,2,3);
+    pac.display("[PAC_HANDLE] simple_class_agruement");
+    
+    //do shallow copy process (fixed process for shallow copy)
+      pac1=new pac;
+    pac1.display("{PAC1_HANDLE] do shallow copy process");
+    
+    //now, we override pac variable and check it's also effect nested object
+    pac.p.a=11;
+    pac.b=99;
+    pac.c=87;
+    pac.display("[PAC_HANDLE] now, we override pac variable and check it's also effect nested object");
+    
+    pac1.display("{PAC1_HANDLE_CHECK] now, we override pac variable and check it's also effect nested object");
+  end
+endmodule
+
+
+//DEEP COPY
+
+//shallow copy
+
+class packet;
+  
+  int a;
+  
+  function new(int a);
+    this.a=a;
+    
+  endfunction
+  
+endclass
+
+class inner_class;
+  
+  int b,c;
+  packet p;
+  function new(int a,int b,int c);
+    p=new(a);
+    this.b=b;
+    this.c=c;    
+  endfunction
+  
+  function void copy(inner_class ic);
+    p.a =ic.p.a;
+    this.b=ic.b;
+    this.c=ic.c;
+  endfunction
+
+  function void display(string name);
+    $display("NAME_OF_PROCESS=%s  a=%0d, b=%0d, c=%0d",name, p.a , b,c);
+  endfunction
+endclass
+
+module tab;
+  inner_class pac,pac1;
+  initial begin
+    pac=new(1,2,3);
+    pac.display("[PAC_HANDLE] simple_class_agruement");
+    
+    //do shallow copy process (fixed process for shallow copy)
+    pac1=new(8,9,10);
+    pac1.copy(pac);
+    pac1.display("{PAC1_HANDLE] do deep copy process");
+    
+    //now, we override pac variable and check it's also effect nested object
+    pac.p.a=11;
+    pac.b=99;
+    pac.c=87;
+    pac.display("[PAC_HANDLE] now, we override pac variable and check it's also effect nested object");
+    
+    pac1.display("{PAC1_HANDLE_CHECK] now, we override pac variable and check it's also effect nested object");
+  end
+endmodule
