@@ -1,0 +1,35 @@
+//  Implicit External Constraint  and Explicit External Constraint
+
+
+
+// class packet;
+//   rand bit [3:0] addr;
+//   rand bit mode;
+//     constraint addr_range;
+//      extern constraint xx ;
+  
+ 
+
+//   function void post_randomize();
+//     $display("address=%0d ", addr);
+//   endfunction
+  
+// endclass
+
+// constraint packet::addr_range {
+//   addr inside {[1:5]};}
+
+// constraint packet::xx{ 
+//   mode==1;
+// }
+
+// module tab;
+//   packet pac=new();
+  
+//   initial begin
+//     repeat(10)
+//       pac.randomize();
+//   end
+// endmodule
+
+
