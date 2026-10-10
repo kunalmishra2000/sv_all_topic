@@ -1,0 +1,29 @@
+//   SystemVerilog Inline Constraints using with key 
+//do overriding think
+
+
+// class packet;
+//   rand bit [3:0] addr;
+//     constraint addr_range {
+//       addr inside {[0:15]};}
+
+
+  
+ 
+
+//   function void post_randomize();
+//     $display("address=%0d ", addr);
+//   endfunction
+  
+// endclass
+
+
+
+// module tab;
+//   packet pac=new();
+  
+//   initial begin
+    
+//     assert(pac.randomize() with {pac.addr==10;}); 
+//   end
+//endmodule
