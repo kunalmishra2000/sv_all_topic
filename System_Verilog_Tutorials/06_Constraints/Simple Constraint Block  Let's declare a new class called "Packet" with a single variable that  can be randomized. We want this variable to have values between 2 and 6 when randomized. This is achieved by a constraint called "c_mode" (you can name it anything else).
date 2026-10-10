@@ -1,0 +1,96 @@
+// Simple Constraint Block
+ Let's declare a new class called "Packet" with a single variable that
+ can be randomized. We want this variable to have values between 2 and 6
+when randomized. This is achieved by a constraint called "c_mode" (you
+can name it anything else).
+
+
+
+// class packet;
+//  rand int a;
+  
+//   //with in build method
+//  //  constraint x{  a inside {[2:6]};}
+  
+//   //without inbuild method
+//   constraint x{  a >=2; a<=6;}
+
+  
+  
+  
+
+    
+//     function void post_randomize();
+//       $display("a=%0d", a);
+//     endfunction
+    
+//     endclass
+//     module tab;
+//       packet pac=new();
+      
+//       initial begin
+//         repeat(10)
+//         pac.randomize();
+//       end
+//     endmodule 
+
+//-------------------------------------------------------------------------------------------------------------------------
+
+//Multiple Constraint Blocks
+
+
+
+
+class packet;
+    rand bit [31:0] addr;
+    rand bit [7:0]  data;
+    rand bit [2:0]  burst_len;
+    rand bit        read_write;  // 0 = read, 1 = write
+  
+      // Address must be 4-byte aligned
+  constraint add_aligned { 
+    
+        addr%4== 0;
+  }
+  
+  //    // Address must be within a valid MMIO window
+ constraint c_addr_range {
+          addr inside {[32'h0000_0001 : 32'h0000_0111]};
+
+    }
+  
+      // Burst length is 1 to 4 beats
+  constraint bust_leng{
+    burst_len >=1; 
+    burst_len<=4;
+  }
+  
+  //    // Read transactions carry no write data
+  constraint c_read_data  {
+    
+    (read_write == 0) -> (data == 8'h00);  // 0 = read, 1 = write
+    
+  }
+  
+
+  function void post_randomize();
+    $display("address=%0d write_read=%0d burst_len=%0d  data=%0d", addr,read_write,burst_len,data);
+  endfunction
+  
+endclass
+
+module tab;
+  packet pac=new();
+  
+  initial begin
+    repeat(10)
+      pac.randomize();
+  end
+endmodule
+
+
+  
+  
+  
+
+    
