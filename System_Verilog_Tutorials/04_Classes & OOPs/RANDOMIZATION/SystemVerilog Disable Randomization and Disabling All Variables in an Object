@@ -1,0 +1,36 @@
+//  SystemVerilog Disable Randomization and Disabling All Variables in an Object
+//enable using rand_mode(1), disable using rand_mode(0);
+
+
+class packet;
+  rand bit [7:0]	a;
+rand   bit[7:0] b;
+  
+  
+   function void post_randomize ();
+     $display ("beer_id=%0d check_sum=%0d", a, b);
+  endfunction
+endclass
+
+module tab;
+  packet pac=new();
+  
+  initial begin
+    assert(pac.randomize());
+    
+    pac.a.rand_mode(0); //disable
+        assert(pac.randomize());
+    
+    pac.a.rand_mode(1); //enable
+        assert(pac.randomize());
+    
+        
+    pac.rand_mode(0); //disable all variable
+        assert(pac.randomize());
+    
+
+    
+  end
+endmodule
+  
+
