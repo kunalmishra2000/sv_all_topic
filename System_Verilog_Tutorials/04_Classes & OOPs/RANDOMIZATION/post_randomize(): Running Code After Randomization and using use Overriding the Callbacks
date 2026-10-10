@@ -1,0 +1,26 @@
+//post_randomize(): Running Code After Randomization
+//use Overriding the Callbacks
+//virtual key 
+//it's through error
+
+class packet;
+  rand bit [7:0]	beer_id;
+
+//   virtual function void pre_randomize ();
+//   	$display ("This will be called just before randomization");
+//   endfunction
+
+  
+  virtual function void post_randomize ();
+  	$display ("This will be called just before randomization");
+  endfunction
+endclass
+
+module tab;
+  packet pac=new();
+  
+  initial begin
+    assert(pac.randomize());
+  end
+endmodule
+  
