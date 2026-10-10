@@ -1,0 +1,23 @@
+/*
+Challenge: Watch randc Exhaust a Small Range
+Declare a class property data as randc bit [1:0] (legal range 0 to 3) and randomize it 4 times in a row, printing the iteration number and value each time.
+*/
+
+
+class packet;
+  randc bit[1:0] data;
+  
+  function void post_randomize();
+    $display(" randc_variable=%0d", data);
+  endfunction
+  
+endclass
+
+module tab;
+  packet pac=new();
+  initial begin
+    repeat(5)begin
+      pac.randomize();
+    end
+  end
+endmodule 
