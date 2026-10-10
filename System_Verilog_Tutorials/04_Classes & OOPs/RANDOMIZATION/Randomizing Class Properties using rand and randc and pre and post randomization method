@@ -1,0 +1,26 @@
+//  Randomizing Class Properties using rand and randc and pre and post randomization method
+
+
+// class packet ;
+  
+//   rand bit [2:0] a;
+//   randc bit [2:0] b;
+  
+//   function void pre_randomize();
+//     $display(" pre_randomization [ display default value] a=%0d  b=%0d", a,b);
+//   endfunction
+  
+//    function void post_randomize();
+//      $display(" post_randomize [ display randmize value] a=%0d  b=%0d", a,b);
+//   endfunction
+// endclass
+
+// module tab;
+// packet pac=new();
+
+// initial begin
+//   repeat(10)begin
+//     pac.randomize();
+//   end
+// end
+// endmodule 
