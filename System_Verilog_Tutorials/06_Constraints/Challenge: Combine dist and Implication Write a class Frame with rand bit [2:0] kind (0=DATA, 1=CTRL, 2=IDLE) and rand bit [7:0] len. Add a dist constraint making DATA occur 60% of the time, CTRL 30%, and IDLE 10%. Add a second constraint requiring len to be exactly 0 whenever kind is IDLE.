@@ -1,0 +1,37 @@
+/*
+
+Challenge: Combine dist and Implication
+Write a class Frame with rand bit [2:0] kind (0=DATA, 1=CTRL, 2=IDLE) and rand bit [7:0] len. Add a dist constraint making DATA occur 60% of the time, CTRL 30%, and IDLE 10%. Add a second constraint requiring len to be exactly 0 whenever kind is IDLE.
+
+*/
+
+typedef enum  bit [2:0]{ data, ctrl,idle} kinds;
+
+class packet;
+  rand kinds kind;
+  
+  // rand bit[2:0]kind;  //0=DATA, 1=CTRL, 2=IDLE
+  rand bit[7:0] len;
+  
+  
+  constraint c_kind_dist {
+    kind dist { 0:=60, 1:=30, 2:=10 };}
+    
+    constraint c_idle_imple_const{
+      (kind==2) -> (len==0);
+    }
+    
+    
+    function void post_randomize();
+      $display("kind=%0d len=%0d", kind, len);
+    endfunction
+    
+    endclass
+    module tab;
+      packet pac=new();
+      
+      initial begin
+        repeat(10)
+        pac.randomize();
+      end
+    endmodule 
