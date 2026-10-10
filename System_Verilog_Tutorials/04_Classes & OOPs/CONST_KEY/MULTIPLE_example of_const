@@ -1,0 +1,79 @@
+// const 
+
+// Global const
+
+// class packet;
+//   const int a=9;
+  
+//   function void dis();
+//     $display(" use const key a=%0d", a);
+//   endfunction
+  
+// endclass
+
+// module tab;
+//   packet pac=new();
+//   initial begin
+//     // Global const
+//     pac.a=10;
+//     pac.dis();
+//   end
+// endmodule
+
+
+//2.
+
+// class packet;
+//   const int max_size= 5*10; //50
+//   byte array[];
+  
+//   function new(int size);
+//     array=new[size > max_size ? max_size : size];
+  
+//   endfunction
+  
+//   function void dis();
+//     $display(" use const key a=%0d   array_size=%0d", max_size, $size(array));
+//   endfunction
+  
+// endclass
+
+// module tab;
+//   packet pac=new(100);
+//   initial begin
+    
+//     pac.dis();
+//     pac=new(30);
+//     pac.dis();
+//   end
+// endmodule
+
+
+//Instance Constant Class Properties
+
+
+// class packet;
+//   const int size;
+//   byte array[];
+  
+//   function new();
+//     size= $urandom%10;
+//     array=new[size];
+  
+//   endfunction
+  
+//   function void dis();
+//     $display(" use const key size=%0d   array_size=%0d", size, $size(array));
+//   endfunction
+  
+// endclass
+
+// module tab;
+//   packet pac=new();
+//   initial begin
+//     pac.dis();
+//     //new we want to modifi size value  //through error
+//     pac.size=50;
+//     pac.dis();
+//   end
+// endmodule
