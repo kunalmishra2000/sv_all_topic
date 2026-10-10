@@ -1,0 +1,45 @@
+
+//Inline Constraints Add To, Never Replace
+// using inline constraint we can do  override using more step inside module 
+
+// If a test genuinely needs to REPLACE c_id rather than add to it:
+
+/*
+Challenge: Predict Two Inline Calls
+Given constraint c_range { val inside {[10:20]}; }, predict whether each of these inline calls succeeds: randomize() with { val == 15; } and randomize() with { val == 25; }.
+*/
+
+
+class packet;
+  rand bit [3:0] addr;
+    constraint addr_range {
+      addr ==12;}
+
+
+  
+ 
+
+  function void post_randomize();
+    $display("address=%0d ", addr);
+  endfunction
+  
+endclass
+
+
+
+module tab;
+  packet pac=new();
+  
+  initial begin
+    // If a test genuinely needs to REPLACE c_id rather than add to it:
+    pac.addr_range.constraint_mode(0); // disable constraint
+    
+ // Inline constraint can now set addr to 10
+    assert(pac.randomize() with { addr == 10; });
+    pac.addr_range.constraint_mode(1); // enable constraint  and do overriding think
+    
+    
+     // Now addr must be 12 again
+    assert(pac.randomize());
+  end
+endmodule
