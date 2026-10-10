@@ -1,0 +1,33 @@
+//SystemVerilog Constraint 'inside' it's mainly use to define  set of size and range between
+
+/*
+Challenge: Constrain an Address Outside a Reserved Region
+A device has address space 0x0000 to 0xFFFF, with 0x8000–0x80FF reserved for internal use. Write a constraint on a rand bit [15:0] addr that keeps randomized addresses out of the reserved region.
+*/
+
+class packet;
+  rand bit [15:0] addr;
+    constraint addr_range {
+      !(addr inside {[16'h8000 : 16'h80ff]});}
+  
+
+
+  
+ 
+
+  function void post_randomize();
+    $display("address=%0d ", addr);
+  endfunction
+  
+endclass
+
+
+
+module tab;
+  packet pac=new();
+  
+  initial begin
+    
+    assert(pac.randomize());
+  end
+endmodule
