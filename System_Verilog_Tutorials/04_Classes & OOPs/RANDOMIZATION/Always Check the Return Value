@@ -1,0 +1,39 @@
+
+  
+
+
+
+
+//Always Check the Return Value
+
+
+
+// class packet ;
+  
+//   rand bit [2:0] a;  
+//   constraint x{  a>1 && a<3;}
+  
+ 
+// endclass
+
+// module tab;
+// packet pac=new();
+
+// initial begin
+  
+//     if(pac.randomize())
+//     $display("RANDOMIZATION_PASS  a=%0d", pac.a);
+//   else
+//     $display(" RANDOMIZATION_FAIL a=%0d",pac.a);
+  
+  
+//   // if we want to override value then what 
+//   if(pac.randomize() with {pac.a ==5;})
+//     $display("RANDOMIZATION_PASS with override a=%0d", pac.a);
+//   else
+//     $display(" RANDOMIZATION_FAIL  with override a=%0d",pac.a);
+  
+  
+  
+// end
+// endmodule 
