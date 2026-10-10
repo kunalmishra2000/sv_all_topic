@@ -1,0 +1,17 @@
+//   Direct Tests vs Randomized Tests
+
+//What Are Direct Tests?
+//A direct test is fully hand-crafted. You explicitly set every signal to every value, in the exact sequence you want.
+
+/*
+// Direct test: manually drive a specific transaction
+pkt.addr = 8'h10;
+pkt.data = 8'hAB;
+pkt.cmd  = WRITE;
+*/
+
+//What Are Randomized Tests?
+//A randomized test relies on the simulator to generate values automatically. The test runs repeatedly with different seeds, so each run exercises a //different slice of the design's behavior
+
+// Randomized test: let the solver pick the values
+//assert(pkt.randomize())
