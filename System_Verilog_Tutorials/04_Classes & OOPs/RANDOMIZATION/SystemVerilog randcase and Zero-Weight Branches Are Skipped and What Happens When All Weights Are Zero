@@ -1,0 +1,38 @@
+// SystemVerilog randcase and Zero-Weight Branches Are Skipped and What Happens When All Weights Are Zero
+
+// module tab;
+  
+//   initial begin
+    
+//     for(int i=0; i<10; i++)begin
+    
+//     randcase
+//       4: $display("[thread_1] 40 per  this thread display");
+//       5: $display("[thread_2] 50 per this thread will display");
+//       1: $display("[thread_3] 10 per of thia thread will display");
+//       0: $display("[thread_4] 0 per of thia thread will display");
+
+    
+//     endcase
+//     end
+//   end
+  
+//  // What Happens When All Weights Are Zero
+//   //NOTE:- result :- give warning :- Warning: (vsim-7314) All randcase branches have non-positive weights.
+
+//   initial begin
+    
+//       for(int i=0; i<10; i++)begin
+    
+//     randcase
+//         0: $display("[thread_1] 00 per  this thread display");
+//         0: $display("[thread_2] 0 per this thread will display");
+//         0: $display("[thread_3] 0 per of thia thread will display");
+//       0: $display("[thread_4] 0 per of thia thread will display");
+
+    
+//     endcase
+//     end
+//   end
+// endmodule
+
