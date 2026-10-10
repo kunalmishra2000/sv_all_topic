@@ -1,0 +1,40 @@
+
+
+
+/*
+Challenge: Combine Both Kinds of Constant
+Write a class Transaction with a global constant static const int MAX_ID = 100; and an instance constant const int id;. In the constructor, accept a requested_id argument, and assign id to whichever is smaller: requested_id or MAX_ID. Create two objects — one with a requested ID under the limit, one over it — and display both.
+*/
+
+
+
+class packet;
+ const int max_id =100; //global id
+  const int id ; // inst id
+  
+  
+  function new(int requested_id);
+       id = (requested_id > max_id) ? max_id : requested_id;
+
+  endfunction
+  
+  function void dis();
+    $display(" use const key MAX_ID=%0d   ID=%0d", max_id, id);
+  endfunction
+  
+endclass
+
+module tab;
+  initial begin
+   packet pac=new(105); //print max_id
+    
+// it's not through error beacuse of,  it's not modifi ; it's create separate memory for each simulation/ compiltion
+    packet pac1=new(50); // print requester_id
+   pac1.dis();
+       pac.dis();
+
+
+    
+   
+  end
+endmodule
