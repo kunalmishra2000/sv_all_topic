@@ -1,0 +1,30 @@
+
+//   When Inline and Class Constraints Conflict
+
+// //error thorugh
+// class packet;
+//   rand bit [3:0] addr;
+//     constraint addr_range {
+//       addr ==12;}
+
+
+  
+ 
+
+//   function void post_randomize();
+//     $display("address=%0d ", addr);
+//   endfunction
+  
+// endclass
+
+
+
+// module tab;
+//   packet pac=new();
+  
+//   initial begin
+    
+//     assert(pac.randomize() with {pac.addr <10;}); 
+//   end
+// endmodule
+
