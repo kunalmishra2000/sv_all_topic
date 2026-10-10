@@ -1,0 +1,36 @@
+/*
+
+Challenge: Disable var2 Instead
+Using the same Fruits class, write code that disables var2 only, then calls randomize() and prints both variables before and after. What do you expect var2 to be after randomization?
+
+*/
+
+
+class packet;
+  rand bit [7:0]	a;
+rand   bit[7:0] b;
+  
+  
+   function void post_randomize ();
+     $display ("beer_id=%0d check_sum=%0d", a, b);
+  endfunction
+endclass
+
+module tab;
+  packet pac=new();
+  
+  initial begin
+    assert(pac.randomize());
+    
+    pac.a.rand_mode(0); //disable
+        assert(pac.randomize());
+    
+  
+    
+  
+    
+
+    
+  end
+endmodule
+  
