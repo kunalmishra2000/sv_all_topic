@@ -1,0 +1,15 @@
+//  Randomizing Plain Variables with std::randomize()
+
+// module tab;
+//   int addr, data;
+
+// initial begin
+ 
+//   if(std::randomize(data, addr) with { data inside {[1:100]}; addr inside {[101:150]};})
+//     $display("randomize data data=%0d addr=%0d", data, addr);
+//   else
+//     $display(" FAIL randomization");
+  
+//   end
+
+// endmodule 
