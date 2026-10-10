@@ -1,0 +1,25 @@
+/*
+Challenge: Compute a Checksum in post_randomize()
+Extend the Beverage class with a second field, bit [7:0] checksum, that is not declared rand. In post_randomize(), set checksum to the bitwise complement of beer_id (~beer_id), then print both fields.
+*/
+
+class packet;
+  rand bit [7:0]	beer_id;
+  bit[7:0] checksum;
+  
+  constraint range{ beer_id>10; beer_id <50;}
+  
+   function void post_randomize ();
+     checksum= ~beer_id;
+     $display ("beer_id=%0d check_sum=%0d", beer_id, checksum);
+  endfunction
+endclass
+
+module tab;
+  packet pac=new();
+  
+  initial begin
+    assert(pac.randomize());
+  end
+endmodule
+  
