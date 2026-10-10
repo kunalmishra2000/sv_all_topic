@@ -1,0 +1,55 @@
+//Relational Constraints
+
+/*
+
+constraint c1 { data < 32'h1000; }
+constraint c2 { addr >= 8'h10; addr <= 8'hF0; }
+*/
+
+//The inside Operator
+/*
+
+constraint c3 { opcode inside {READ, WRITE, IDLE}; }
+constraint c4 { size inside {[4:64]}; }
+constraint c5 { !(opcode inside {RESERVED_1, RESERVED_2}); }
+*/
+
+//Weighted Distributions With dist
+
+/*
+
+constraint cmd_dist {
+    cmd dist { READ := 70, WRITE := 30 };
+}
+
+// Values 0-7 SHARE a total weight of 10; value 8 gets 50 all to itself
+constraint priority_dist {
+    priority dist { [0:7] :/ 10, 8 := 50 };
+}
+
+*/
+
+//Implication Constraints  ->
+/*
+
+constraint read_no_data {
+    (cmd == READ) -> (data == 0);
+}
+*/
+
+//Enabling and Disabling Constraints   
+
+/*
+pkt.addr_range.constraint_mode(0);  // disable
+pkt.addr_range.constraint_mode(1);  // re-enable
+
+*/
+
+
+//Inline Constraints With randomize() with
+
+/*
+
+assert(pkt.randomize() with { addr == 8'hFF; });
+*/
+
