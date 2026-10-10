@@ -1,0 +1,73 @@
+  
+// //Constraint Blocks and Inheritance
+// //NOTE:- we can not override if both constraint name is same just  incrrease range  if initial of both value are same inside constraint
+// class packet;
+//   rand bit [11:0] addr;
+  
+//  constraint addr_range {
+//   addr inside {[0:15]};}
+ 
+
+//   function void post_randomize();
+//     $display("address=%0d ", addr);
+//   endfunction
+  
+// endclass
+
+// class restrict_trasnac extends packet;
+//       // Override: only allow the lower quarter of the address space
+
+// constraint addr_range {
+//   addr inside {[1:15]};}
+ 
+  
+
+// endclass
+// module tab;
+//   packet pac=new();
+  
+//   initial begin
+//     repeat(10)
+//       pac.randomize();
+//   end
+// endmodule
+
+  
+
+/*
+Challenge: Override, Don't Narrow
+Write a class BaseCmd with rand bit [3:0] opcode and a constraint c_op allowing the full range [0:15]. Write a subclass RestrictedCmd that overrides c_op to only allow [0:3]. If RestrictedCmd is randomized many times, what's the full range of values opcode could ever show?
+*/
+//opcode=addr
+    
+class packet;
+  rand bit [3:0] addr;
+  
+ constraint addr_range {
+   addr inside {[0:15]};}
+ 
+
+  function void post_randomize();
+    $display("address=%0d ", addr);
+  endfunction
+  
+endclass
+
+class restrict_trasnac extends packet;
+      // Override: only allow the lower quarter of the address space
+
+constraint addr_range {
+  addr inside {[0:3]};}
+ 
+  
+
+endclass
+module tab;
+  packet pac=new();
+  
+  initial begin
+    repeat(10)
+      pac.randomize();
+  end
+endmodule
+
