@@ -1,0 +1,43 @@
+
+/*
+
+Challenge: Weighted Transaction Type Selector
+Write a randcase block that picks between three transaction types — "READ", "WRITE", and "ERROR" — so that READ and WRITE are equally likely and ERROR is much rarer, roughly a 1-in-20 chance.
+
+*/
+
+
+module tab;
+      int write=0;
+
+  task write_trans();
+    write = write +1;
+    $display("[thread write transaction] write_data=%0d", write);
+  endtask
+  
+  task read_trans();
+    int read_data;
+    read_data =write;
+    $display("[thread read transaction] read_data=%0d", read_data);
+  endtask
+  
+  task error_trasn();
+    int error;
+    error=1;
+    $display("[thread error transaction] error_data=%0d", error);
+  endtask
+  
+  initial begin
+    
+    for(int i=0; i<10; i++)begin
+    
+    randcase
+      4: write_trans;
+      5: read_trans;
+      1: error_trasn;
+    endcase
+    end
+  end
+  
+endmodule
+
