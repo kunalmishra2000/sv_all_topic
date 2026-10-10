@@ -1,0 +1,46 @@
+//typedef
+/*
+Challenge: A Driver and Monitor That Reference Each Other
+Using the same forward-declaration pattern, write two classes, Driver and Monitor, each holding a handle to the other. Give Driver a property tx_count and Monitor a property rx_count, and write a Monitor method that prints both counts by reading its own rx_count and the connected Driver's tx_count.
+*/
+
+ typedef driver;
+
+class monitor;
+  
+  driver driver_h;
+  int rx_counter=5;
+  
+  function new(driver dri);
+    driver_h = dri;
+  endfunction
+  
+  
+  function void display();
+    $display("driver_tx_counter=%0d montior_rx_counter=%0d", driver_h.tx_counter,rx_counter);
+  
+  endfunction
+  
+endclass
+
+class driver;
+    monitor mon;
+
+  int tx_counter=7;
+  
+  
+endclass
+
+module tab;
+//    monitor mon;
+//   driver dri;
+     initial begin   
+       
+         driver dri_h=new();
+       monitor monitor_h=new(dri_h);
+    monitor_h.display();
+    
+ end
+  
+endmodule
+  
