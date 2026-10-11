@@ -1,0 +1,31 @@
+
+//Array Reduction Iterative Constraint
+/*
+Array reduction methods can produce a single value from an array of integral values, and this can be used directly inside a constraint. Here, an array of 5 elements is constrained so their sum equals 20
+
+*/
+// total sum of array is 20
+       
+//           class ABC;
+//             rand  bit[3:0]   a [5];
+
+//       //  // Intrepreted as int'(array[0]) + int'(array[1]) + .. + int'(array[4]) == 20;
+            
+//             constraint x {  a.sum with (int '(item))==20;
+//                          }
+
+
+
+// endclass
+
+// module tb;
+
+//   initial begin
+//     ABC abc = new;
+//     repeat(10)begin
+//     abc.randomize();
+//     $display ("md_array = %p", abc.a);
+//   end
+//   end
+// endmodule
+
