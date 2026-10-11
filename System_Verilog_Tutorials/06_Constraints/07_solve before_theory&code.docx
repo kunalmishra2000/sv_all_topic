@@ -1,0 +1,26 @@
+//SystemVerilog solve before
+
+
+class packet;
+  rand  int len;
+  rand  bit  mode;
+
+  constraint x { mode -> len==6;
+                solve mode before len;
+               }
+  
+  function void post_randomize();
+    $display("mode=%0d len=%0d", mode, len);
+  endfunction
+  
+endclass
+
+module tab;
+  packet pac=new();
+  
+  initial begin
+    repeat(10)
+    pac.randomize();
+  end
+endmodule
+
