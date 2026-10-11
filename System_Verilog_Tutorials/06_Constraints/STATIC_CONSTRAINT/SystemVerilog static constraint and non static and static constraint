@@ -1,0 +1,38 @@
+// SystemVerilog static constraint
+//Turn Off a non Static Constraint
+//Turn Off a Static Constraint
+
+
+// class packet;
+//   rand  bit [3:0] a;
+
+//     constraint x {  a>5; }
+  
+//  static constraint xx{
+//     a<10;
+  
+//                }
+
+  
+// endclass
+
+// module tab;
+//   packet pac=new();
+//   packet pac1=new();
+  
+//   initial begin
+    
+//    //  pac.x.constraint_mode(0); // off the non static constraint pac.a 
+//         pac.xx.constraint_mode(0); // off the non static constraint pac.a 
+
+    
+//     repeat(10)begin
+//     pac.randomize();
+//     pac1.randomize();
+//       $display("pac.a=%0d  pac1.a=%0d", pac.a,pac1.a);
+//     end
+//   end
+// endmodule
+
+
+/*
