@@ -1,0 +1,29 @@
+
+/*
+
+Challenge: Constrain a Write/Read Transaction
+Write a class Trans with rand bit is_write and rand bit [7:0] data. Add a constraint requiring data != 0 when is_write is 1, and data == 0 when is_write is 0.
+*/
+
+
+class packet;
+  rand  bit[7:0] data;
+  rand  bit  is_write;
+  
+  constraint x{  (is_write ==1) -> data!=0 ;
+               (is_write ==0) -> data==0;
+              }
+  function void post_randomize();
+    $display("is_write=%0d data=%0d", is_write, data);
+  endfunction
+  
+endclass
+
+module tab;
+  packet pac=new();
+  
+  initial begin
+    repeat(10)
+    pac.randomize();
+  end
+endmodule
