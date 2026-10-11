@@ -1,0 +1,51 @@
+//  Multiple Coverpoints in One Covergroup
+
+module packet;
+        bit [1:0] mode;
+
+  bit[3:0] key;
+  
+  bit clk;
+  always #5 clk = ~clk;
+  
+  covergroup cg @(posedge clk);
+    option.per_instance = 1;    // show bins in GUI & each instance coverage is collected separately
+
+   
+           cp_mode    : coverpoint mode;
+    cp_cfg_10  : coverpoint key[1:0];
+    cp_cfg_lsb : coverpoint key[0];
+    cp_sum     : coverpoint (mode + key);                    
+                              
+  
+                               
+endgroup
+                               
+                               
+                               function void post();
+                                 $display($time, " key=%0d mode=%0d", key,mode);
+                               endfunction
+                               
+                               
+  
+
+   initial begin
+    cg cg_v=new();
+
+     
+     repeat(10)begin
+       
+       @(negedge clk);
+       {key, mode}= $urandom();
+       post();
+       $display("Coverage = %0.2f%%", cg_v.get_coverage());
+
+     end
+   end
+  
+  
+  initial begin : stp_clk
+    #100 $finish();
+  end
+  
+ endmodule
