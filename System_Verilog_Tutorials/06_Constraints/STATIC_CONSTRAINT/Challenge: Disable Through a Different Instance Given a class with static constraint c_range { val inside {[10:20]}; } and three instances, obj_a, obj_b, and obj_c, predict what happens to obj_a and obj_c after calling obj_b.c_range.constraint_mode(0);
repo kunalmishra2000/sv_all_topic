@@ -1,0 +1,44 @@
+/*
+
+
+Challenge: Disable Through a Different Instance
+Given a class with static constraint c_range { val inside {[10:20]}; } and three instances, obj_a, obj_b, and obj_c, predict what happens to obj_a and obj_c after calling obj_b.c_range.constraint_mode(0);
+
+*/
+/*   //solution
+Both obj_a and obj_c lose the [10:20] restriction too. Since c_range is static, its enable/disable state is shared across the entire class — disabling it through obj_b's handle disables it everywhere, exactly as if it had been called through obj_a or obj_c instead.
+*/
+
+class packet;
+  rand  bit [3:0] a;
+  
+  static constraint x{ foreach(a[i])
+    a[i] inside {[10:20]};}
+  
+      
+
+  
+
+  
+endclass
+
+module tab;
+  packet pac=new();
+  packet pac1=new();
+  packet pac2=new();
+  
+  initial begin
+    
+    pac.x.constraint_mode(0);
+
+    
+    repeat(10)begin
+    pac.randomize();
+    pac1.randomize();
+          pac2.randomize();
+
+      $display("pac.a=%0d  pac1.a=%0d pac2.a=%0d ", pac.a,pac1.a,pac2.a);
+    end
+  end
+endmodule
+
