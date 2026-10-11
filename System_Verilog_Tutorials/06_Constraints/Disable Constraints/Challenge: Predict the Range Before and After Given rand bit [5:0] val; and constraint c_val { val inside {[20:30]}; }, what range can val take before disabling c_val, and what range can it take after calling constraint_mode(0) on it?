@@ -1,0 +1,30 @@
+
+/*
+
+Challenge: Predict the Range Before and After
+Given rand bit [5:0] val; and constraint c_val { val inside {[20:30]}; }, what range can val take before disabling c_val, and what range can it take after calling constraint_mode(0) on it?
+*/
+
+
+class packet;
+  rand  bit [5:0] a;
+
+  constraint  x{   a inside {[20:30]};}
+  
+endclass
+
+module tab;
+  packet pac=new();
+  
+  initial begin
+  
+//using inside constraint to override 
+    
+    repeat(10)begin
+      pac.x.constraint_mode(0);
+      pac.randomize();
+     
+      $display("pac.a=%0d  ", pac.a);
+    end
+  end
+endmodule
