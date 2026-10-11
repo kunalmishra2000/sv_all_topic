@@ -1,0 +1,119 @@
+//SystemVerilog Constraint Examples
+//example:-1
+//There can be only one relational operator (< <= > >=) in a single expression:
+
+// class packet;
+// 	rand bit [7:0] min, typ, max;
+//   rand bit [7:0] fixed;
+//   //	// Valid expression
+
+//     constraint addr_range {
+//        min>0;   //min greater then 0
+//       typ< max; //typ is less then max
+//       typ >min;  //typ is greater then min
+//       max<128;   // max range is 128
+//     }
+  
+//   //error
+//   	// Use of multiple operators in a single expression is not allowed  //try to  express other way // not working correctly 
+//   //constraint xx{ 0<min <typ < max <128;}
+
+//   	// This will set min to 16 and randomize all others
+//   constraint set_min{ min==16;}
+  
+//   //	// This will set max to a random value greater than or equal to 64
+
+//   constraint xxx{ max >=64;}
+
+
+//   constraint cccc{ fixed ==5;}
+  
+
+  
+ 
+
+//   function void post_randomize();
+//     $display("min=%0d max=%0d typ=%0d  fixed=%0d", min,max,typ,fixed);
+//   endfunction
+  
+// endclass
+
+
+
+// module tab;
+//   packet pac=new();
+  
+//   initial begin
+//     repeat(10)
+//     assert(pac.randomize());
+//   end
+// endmodule
+
+//------------------------------------------------------------//Weighted Distributions
+//1. := Operator :- gives every listed value in a range that same weight individually
+//key:- dist
+//:/ splits a weight evenly across the values in a range.
+// class packet;
+//   rand bit[2:0]min;
+  
+//   // := 
+//   //20 + (5×50) + 40 + 10 = 320. The probability of choosing 0 is 20/320, and the combined probability of landing anywhere between 1 and 5 is 250/320
+  
+// //  constraint x{ min dist{ 0:=20, [2:6]:=50, 1:=40, 7:=20};}
+  
+// //:/ Operator
+//   //20 + 50 + 40 + 10 = 120. The probability of choosing 6 is 40/120, the highest of any single value, and the probability of choosing 0 is 20/120
+//   constraint x{ min dist{ 0:/20, [2:6]:/50, 1:/40, 7:/20};}
+
+ 
+
+//   function void post_randomize();
+//     $display("min=%0d", min);
+//   endfunction
+  
+// endclass
+
+
+
+// module tab;
+//   packet pac=new();
+  
+//   initial begin
+//     repeat(10)
+//     assert(pac.randomize());
+//   end
+// endmodule
+
+
+//Bidirectional Constraints 
+
+class packet;
+  rand bit[3:0]min;
+  
+  constraint x{ min> 2; min <12; }
+
+  constraint jh{ min==10;}
+
+  function void post_randomize();
+    $display("min=%0d", min);
+  endfunction
+  
+endclass
+
+
+
+module tab;
+  packet pac=new();
+  
+  initial begin
+    repeat(10)
+    assert(pac.randomize());
+  end
+endmodule
+
+/*
+Challenge: Combine Two Ranges
+Given constraint c1 { val >= 5; val <= 20; } and constraint c2 { val <= 12; } on the same variable, what's the combined legal range for val?
+
+
+*/
