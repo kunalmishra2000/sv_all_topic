@@ -1,0 +1,51 @@
+/*
+Challenge: Add a Coverpoint for cfg
+Starting from the single-coverpoint example, add a second coverpoint that tracks cfg directly (not a bit-slice). Given the sampled values in the output log (cfg = 0x1, 0x3, 0x5, 0x2, 0x5), how many of the 8 possible values were hit, and what coverage percentage would that coverpoint alone report?
+*/
+module packet;
+        bit [1:0] mode;
+
+  bit[3:0] key;
+  
+  bit clk;
+  always #5 clk = ~clk;
+  
+  covergroup cg @(posedge clk);
+    option.per_instance = 1;    // show bins in GUI & each instance coverage is collected separately
+
+   
+           cp_mode    : coverpoint mode;
+                     
+                 cp_key : coverpoint key;              
+  
+                               
+endgroup
+                               
+                               
+                               function void post();
+                                 $display($time, " key=%0d mode=%0d", key,mode);
+                               endfunction
+                               
+                               
+  
+
+   initial begin
+    cg cg_v=new();
+
+     
+     repeat(10)begin
+       
+       @(negedge clk);
+       {key, mode}= $urandom();
+       post();
+       $display("Coverage = %0.2f%%", cg_v.get_coverage());
+
+     end
+   end
+  
+  
+  initial begin : stp_clk
+    #100 $finish();
+  end
+  
+ endmodule
