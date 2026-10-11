@@ -1,0 +1,51 @@
+//   A Single Coverpoint in Action
+
+module packet;
+        bit [1:0] mode;
+
+   bit[1:0] key;
+  
+  bit clk;
+  always #5 clk = ~clk;
+  
+  covergroup cg @(posedge clk);
+    option.per_instance = 1;    // show bins in GUI & each instance coverage is collected separately
+
+    key_level: coverpoint key { bins low ={0,1};
+                               bins high={2,3};
+                              }
+                               mode_level: coverpoint mode ; //automatically create
+                              
+                              
+  
+                               
+endgroup
+                               
+                               
+                               function void post();
+                                 $display("key=%0d", key);
+                               endfunction
+                               
+                               
+  
+
+   initial begin
+    cg cg_v=new();
+
+     
+     repeat(10)begin
+       
+       @(negedge clk);
+       {key, mode}= $urandom();
+       post();
+       $display("Coverage = %0.2f%%", cg_v.get_coverage());
+
+     end
+   end
+  
+  
+  initial begin : stp_clk
+    #100 $finish();
+  end
+  
+ endmodule
