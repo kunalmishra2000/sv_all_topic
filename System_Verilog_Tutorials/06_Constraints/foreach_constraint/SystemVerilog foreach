@@ -1,0 +1,27 @@
+SystemVerilog foreach
+
+
+// // class packet;
+// //   rand  int len[10];
+// //   rand  bit  mode;
+
+// //   constraint x { 
+    
+// //     foreach(len[i])
+// //       len[i]==i;
+// //                }
+  
+// //   function void post_randomize();
+// //     $display("mode=%0d len=%0p", mode, len);
+// //   endfunction
+  
+// // endclass
+
+// // module tab;
+// //   packet pac=new();
+  
+// //   initial begin
+// //     repeat(10)
+// //     pac.randomize();
+// //   end
+// // endmodule
