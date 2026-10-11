@@ -1,0 +1,30 @@
+         
+//           //   Multidimensional Dynamic Arrays
+
+//           class ABC;
+//             rand bit[4:0]a [][];
+
+//             //create size of array
+//             constraint x{
+//               a.size ==4;
+//               foreach(a[i])
+//                 a[i].size inside {[1:3]};
+//               //  range for array
+//               foreach(a[i,j])
+//                 a[i][j] inside {[1:100]};}
+              
+
+
+// endclass
+
+// module tb;
+
+//   initial begin
+//     ABC abc = new;
+//     abc.randomize();
+//     $display ("md_array = %p", abc.a);
+//   end
+// endmodule
+
+
+
