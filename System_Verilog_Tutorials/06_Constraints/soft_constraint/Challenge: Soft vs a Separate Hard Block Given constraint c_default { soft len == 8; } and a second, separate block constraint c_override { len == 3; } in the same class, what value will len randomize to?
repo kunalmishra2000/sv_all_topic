@@ -1,0 +1,27 @@
+/*
+Challenge: Soft vs a Separate Hard Block
+Given constraint c_default { soft len == 8; } and a second, separate block constraint c_override { len == 3; } in the same class, what value will len randomize to?
+*/
+
+class packet;
+  rand  bit [7:0] a;
+
+  constraint  x{ soft   a ==8;}
+  
+  constraint xx{  a == 3;}
+  
+endclass
+
+module tab;
+  packet pac=new();
+  
+  initial begin
+  
+//using inside constraint to override 
+    
+    repeat(10)begin
+      pac.randomize();
+      $display("pac.a=%0d  ", pac.a);
+    end
+  end
+endmodule
