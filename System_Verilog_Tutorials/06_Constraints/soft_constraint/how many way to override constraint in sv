@@ -1,0 +1,30 @@
+// //constraint soft 
+// // soft override one  constraint to other constraint suing soft key
+// // how many way to override constraint in sv
+
+// // using soft key, inline constraint logic(but, condition is need to take  value in with in constraint range) , same name of constraint inside extends class
+
+// class packet;
+//   rand  bit [7:0] a;
+
+//   constraint  x{   a inside {[0:25]};}
+  
+//  // constraint xx{ a inside {[26:45]};}
+
+  
+// endclass
+
+// module tab;
+//   packet pac=new();
+  
+//   initial begin
+  
+// //using inside constraint to override 
+    
+//     repeat(10)begin
+//       pac.randomize() with { pac.a >10; pac.a<15;};
+//       $display("pac.a=%0d  ", pac.a);
+//     end
+//   end
+// endmodule
+
