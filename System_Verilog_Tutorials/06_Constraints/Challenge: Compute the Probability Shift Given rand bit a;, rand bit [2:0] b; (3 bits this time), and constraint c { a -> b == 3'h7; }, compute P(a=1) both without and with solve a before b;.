@@ -1,0 +1,41 @@
+/*
+
+Challenge: Compute the Probability Shift
+Given rand bit a;, rand bit [2:0] b; (3 bits this time), and constraint c { a -> b == 3'h7; }, compute P(a=1) both without and with solve a before b;.
+
+*/
+
+
+class packet;
+  rand  int len;
+  rand  bit  mode;
+
+  constraint x { mode -> len==7;
+                //using if conditon
+                if(mode)
+                  len==7;
+                else
+                  len ==len;
+               }
+  
+//   //with solve before
+//    constraint x { mode -> len==7;
+//                 solve mode before len;
+//                }
+  
+  
+  function void post_randomize();
+    $display("mode=%0d len=%0d", mode, len);
+  endfunction
+  
+endclass
+
+module tab;
+  packet pac=new();
+  
+  initial begin
+    repeat(10)
+    pac.randomize();
+  end
+endmodule
+
