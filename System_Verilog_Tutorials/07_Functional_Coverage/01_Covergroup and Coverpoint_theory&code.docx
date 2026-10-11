@@ -1,0 +1,60 @@
+## Functional Coverage Limitations — In Simple Words
+
+Functional coverage tells us how much of the design's expected functionality has been tested. But it has one important limitation: it can only measure the features that we have included in the coverage code.
+
+### Let's understand with an example
+
+Suppose you are designing a calculator with 10 features.
+
+- You write functional coverage code for only 7 features.
+- You test the calculator and successfully test all 7 features.
+- Your functional coverage may show 100% coverage.
+
+But wait! What happened to the other 3 features? They were never included in the coverage code, so they were never measured.
+
+Imagine the calculator has 10 features:
+
+Tested
+
+Tested
+
+Tested
+
+Tested
+
+Tested
+
+Tested
+
+Tested
+
+Missed
+
+Missed
+
+Missed
+
+7 features tested successfully
+
+3 features not included in coverage
+
+The report might show 100%, even though the complete design has not been checked.
+
+### Why is this a limitation?
+
+Because functional coverage does not automatically know every feature in your design. It only tracks what you tell it to track.
+
+If you forget to include a feature in the coverage model, the coverage report will not warn you that the feature is missing.
+
+### How can we avoid this problem?
+
+1. Read the design specification carefully.
+2. Identify all the important features and scenarios.
+3. Include every relevant feature in the functional coverage code.
+4. Compare the coverage model against the design specification to make sure nothing is missed.
+
+### Remember this key point
+
+100% functional coverage does not always mean the entire design has been tested. It means 100% of the features included in the coverage model have been covered.
+
+In simple words: If you don't measure a feature, you won't know whether it has been tested or not.
