@@ -1,0 +1,32 @@
+
+/*
+
+Challenge: Constrain a Strictly Increasing Array
+Write a class with rand bit [3:0] arr[5] and a foreach constraint requiring every element (after the first) to be strictly greater than the one before it
+
+*/
+
+
+          class ABC;
+            rand  bit[3:0]   a [5];
+
+                     //acceding order
+            constraint x
+            { foreach(a[i])
+              if(i>0)
+                a[i] >a[i-1];
+            }
+
+
+endclass
+
+module tb;
+
+  initial begin
+    ABC abc = new;
+    repeat(10)begin
+    abc.randomize();
+    $display ("md_array = %p", abc.a);
+  end
+  end
+endmodule
