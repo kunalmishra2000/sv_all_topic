@@ -1,0 +1,43 @@
+//SystemVerilog Functional Coverage
+/*
+
+Challenge: Split key Into Two Custom Bins
+Instead of letting key use its 4 default automatic bins, write a bins block that groups it into two custom bins: low for values 0 and 1, and high for values 2 and 3
+*/
+
+class packet;
+  
+  rand bit[1:0] key;
+  
+  
+covergroup cg;
+    option.per_instance = 1;    // show bins in GUI & each instance coverage is collected separately
+
+    key_level: coverpoint key { bins low ={0,1};
+                               bins high={2,3};
+                              
+                              }
+  
+                               
+endgroup
+                               
+                               function new();
+                                 cg=new();
+                               endfunction
+                               
+                               function void post_randomize();
+                                 $display("key=%0d", key);
+                               endfunction
+                               
+                               endclass
+ module tab;
+   packet pac=new();
+   initial begin
+     repeat(10)begin
+     pac.randomize();
+     pac.cg.sample();
+       $display("Coverage = %0.2f%%", pac.cg.get_coverage());
+
+     end
+   end
+ endmodule
